@@ -1,5 +1,9 @@
 class Public::QuestionsController < ApplicationController
+  
   def new
+  end
+  
+  def create
   end
 
   def index
@@ -7,4 +11,5 @@ class Public::QuestionsController < ApplicationController
 
   def show
   end
+  
 end
