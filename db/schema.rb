@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2023_06_02_150026) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
+    t.string "introduction"
     t.integer "gender", null: false
     t.integer "age", null: false
     t.integer "study_background", null: false
