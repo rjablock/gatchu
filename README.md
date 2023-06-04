@@ -1,7 +1,8 @@
-# ガチで学べる中国語　ガッチュウ!!
+# ガッチュウ!!
 
 ## サイト概要
 ### サイトテーマ
+ガチで学べる中国語　ガッチュウ!!  
 中国語の習得を多角的にサポートする本格学習サイト
 
 ### テーマを選んだ理由
@@ -27,7 +28,13 @@
 - 自主学習の中で生まれた疑問を解消したり、他人の抱える疑問点を解消することで学習の理解を深めたいとき
 
 ## 設計書
-
+[UI Flow(public)](https://drive.google.com/file/d/1U4r6sw_dXxtOSHrEnanHJXIrqj06WiA0/view?usp=sharing)  
+[UI Flow(admin)](https://drive.google.com/file/d/1QyQlGWdEe8CQjlwCdZ0XOt0WbkesgBE5/view?usp=sharing)  
+[ワイヤーフレーム(public)](https://drive.google.com/file/d/1Ti3tkXrWuCppGEnolmjPclPdPNXw2KA2/view?usp=sharing)  
+[ワイヤーフレーム(admin)](https://drive.google.com/file/d/1j8rYhqDgFCpw2uNRXZYGaUhYY_D3A3Ri/view?usp=sharing)  
+[ER図](https://drive.google.com/file/d/1fc_0zrJvvU4KpMbKExp91bQ2uahUePlx/view?usp=sharing)  
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1gX2QppEGHLcCl31eEf02WoKvX5EDYJUe9WtqSNGmpzE/edit?usp=sharing)  
+[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1waiWQ93ux3s8uNu15D42wOjEFJk2NtwzHNJOD9Qq7x8/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
