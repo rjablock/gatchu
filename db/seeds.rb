@@ -24,7 +24,7 @@ User.create!(
       age: 10,
       study_background: 10,
       living_area: 70,
-      answer_rank: 1
+      answer_rank: 10
     }
   ]
 )

@@ -119,11 +119,11 @@ ActiveRecord::Schema.define(version: 2023_06_04_075029) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "introduction"
-    t.integer "gender", null: false
-    t.integer "age", null: false
-    t.integer "study_background", null: false
-    t.integer "living_area", null: false
-    t.integer "answer_rank", null: false
+    t.integer "gender", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "study_background", default: 0, null: false
+    t.integer "living_area", default: 0, null: false
+    t.integer "answer_rank", default: 0, null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
