@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :questions, only: [:new, :create, :index, :show]
 
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]
     get '/users/:id/confirm' => 'users#confirm'
     patch '/users/:id/quit' => 'users#quit'
 

@@ -1,0 +1,2 @@
+class TodayWord < ApplicationRecord
+end
