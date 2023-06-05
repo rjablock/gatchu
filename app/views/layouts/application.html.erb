@@ -16,17 +16,39 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-3 text-center" style="background-color: #FFDC44; height: 100vh;">
-          <p class="border border-dark p-5 my-5" style="font-size: 50px;">LOGO</p>
+        <div class="col-3 text-center" style="background-color: #FFDC44; height: 100%;">
+          <p class="border border-dark p-5 my-5" style="font-size: 50px;">
+            <%= link_to "LOGO", root_path, class: "text-dark" %>
+          </p>
 
-          <!--未ログイン時-->
-          <div class="menu h4">
-            <p><%= link_to "今日の中国語", today_words_path, class: "text-dark" %></p><hr>
-            <p><%= link_to "ニュース", posts_path, class: "text-dark" %></p><hr>
-            <p><%= link_to "質問板", questions_path, class: "text-dark" %></p><hr>
-            <p><%= link_to "ログイン", new_user_session_path, class: "text-dark" %></p><hr>
-            <p><%= link_to "新規登録", new_user_registration_path, class: "text-dark" %></p><hr>
-          </div>
+          <% if user_signed_in? %>
+            <!--会員側ログイン時-->
+            <div class="menu h4">
+              <p><%= link_to "今日の中国語", today_words_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "ニュース", posts_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "質問板", questions_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "マイページ", user_path(current_user), class: "text-dark" %></p><hr>
+              <p><%= link_to "ログアウト", destroy_user_session_path, class: "text-dark", method: :delete %></p><hr>
+            </div>
+          <% elsif admin_signed_in? %>
+            <!--管理側ログイン時-->
+            <div class="menu h4">
+              <p><%= link_to "中国語管理", admin_today_words_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "ニュース管理", admin_posts_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "質問板管理", admin_questions_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "会員管理", admin_users_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "ログアウト", destroy_admin_session_path, class: "text-dark", method: :delete %></p><hr>
+            </div>
+          <% else %>
+            <!--未ログイン時-->
+            <div class="menu h4">
+              <p><%= link_to "今日の中国語", today_words_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "ニュース", posts_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "質問板", questions_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "ログイン", new_user_session_path, class: "text-dark" %></p><hr>
+              <p><%= link_to "新規登録", new_user_registration_path, class: "text-dark" %></p><hr>
+            </div>
+          <% end %>
 
           <div class="social h1">
             <%= link_to "https://twitter.com", class: "mx-2" do %>
