@@ -1,8 +1,8 @@
-class Admin::PostsController < ApplicationController
-  
+class Admin::PostsController < Admin::ApplicationController
+
   def new
   end
-  
+
   def create
   end
 
@@ -11,11 +11,11 @@ class Admin::PostsController < ApplicationController
 
   def edit
   end
-  
+
   def update
   end
-  
+
   def destroy
   end
-  
+
 end

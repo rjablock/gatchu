@@ -1,9 +1,8 @@
-class Public::QuestionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  
+class Public::QuestionsController < Public::ApplicationController
+
   def new
   end
-  
+
   def create
   end
 
@@ -12,5 +11,5 @@ class Public::QuestionsController < ApplicationController
 
   def show
   end
-  
+
 end

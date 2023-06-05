@@ -1,5 +1,4 @@
-class Public::TodayWordsController < ApplicationController
-  skip_before_action :authenticate_user!
+class Public::TodayWordsController < Public::ApplicationController
   
   def index
   end
