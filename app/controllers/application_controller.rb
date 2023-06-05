@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
       admin_path
     else
       user_path(current_user)
+    end
   end
 
   def after_sign_out_path_for(resource)
