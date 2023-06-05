@@ -50,6 +50,16 @@ Question.create!(
       user_id: 1,
       title: "犬は中国語でなんというのですか？",
       body: "犬は中国語でなんというのか、気になって夜しか眠れません。教えてください!"
+    },
+    {
+      user_id: 7,
+      title: "猫は中国語でなんと鳴きますか。",
+      body: "ふと気になりました。猫と合わせて犬の鳴き声も一緒に教えていただけますと幸いです。"
+    },
+    {
+      user_id: 5,
+      title: "「鳥のさえずり」を中国語でいうと？",
+      body: "チュンチュン、というアレです。"
     }
   ]
 )
@@ -162,27 +172,27 @@ Bookmark.create!(
   [
     {
       user_id: 1,
-      post_id: 2
+      question_id: 1
     },
     {
       user_id: 1,
-      post_id: 4
+      question_id: 2
     },
     {
       user_id: 4,
-      post_id: 4
+      question_id: 1
     },
     {
       user_id: 5,
-      post_id: 2
+      question_id: 2
     },
     {
       user_id: 5,
-      post_id: 6
+      question_id: 3
     },
     {
       user_id: 6,
-      post_id: 2
+      question_id: 1
     }
   ]
 )
