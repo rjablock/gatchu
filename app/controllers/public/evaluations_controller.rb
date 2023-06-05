@@ -1,4 +1,4 @@
-class Public::EvaluationsController < ApplicationController
+class Public::EvaluationsController < Public::ApplicationController
   
   def create
   end
