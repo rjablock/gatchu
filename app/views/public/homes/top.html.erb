@@ -1,2 +1,52 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+
+  <!--今日の中国語-->
+  <div class="row">
+    <div class="offset-1 col-11">
+      <%= link_to today_words_path do %>
+        <div class="mt-4 mx-auto p-4" style="background-color: orange; width: 90%; height: 300px;"></div>
+      <% end %>
+    </div>
+  </div>
+
+  <!--ニュース-->
+  <div class="row">
+
+    <div class="offset-1 col-8">
+      <div class="news-box mt-4 mx-auto p-4">
+        <!--1つの行に2記事を表示する-->
+        <div class="row mx-auto w-100">
+          <% @posts.each do |post| %>
+            <!--１記事-->
+            <div class="col-6">
+              <%= link_to post_path(post.id) do %>
+                <div class="news border my-3">
+                  <div class="news-image mt-2 mx-auto">
+                    <%= image_tag post.get_image(200, 136), style: "border-radius: 10px;" %>
+                  </div>
+                  <div class="m-2 border text-center text-dark" style="width: 45%; font-size: 14px">
+                    <%= post.genre.name %>
+                  </div>
+                  <div class="news-caption ml-3">
+                    <%= post.title %>
+                  </div>
+                  <div class="m-3" style="font-size: 12px">
+                    <%= post.created_at %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <%= link_to today_words_path do %>
+        <div class="mt-4 mx-auto p-4" style="background-color: green; width: 100%; height: 300px;"></div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,19 @@
+.news{
+  border-radius: 10px;
+  width: 220px;
+  height: 275px;
+  .news-image{
+    width: 200px;
+    height: 136px;
+  }
+  .news-caption{
+    font-weight: bold;
+    color: black;
+  }
+}
+
+.news-box{
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
