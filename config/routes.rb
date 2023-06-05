@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'answers/index'
+  end
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/edit'
+  end
+  namespace :public do
+    get 'bookmarks/index'
+  end
   devise_for :users, controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions',

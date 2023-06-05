@@ -6,10 +6,7 @@ class Admin::QuestionsController < Admin::ApplicationController
   def show
   end
   
-  def destroy_question
-  end
-  
-  def destroy_answer
+  def destroy
   end
   
 end
