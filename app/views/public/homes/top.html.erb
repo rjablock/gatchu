@@ -9,11 +9,11 @@
     </div>
   </div>
 
-  <!--ニュース-->
+  <!--ニュース表示枠-->
   <div class="row">
 
     <div class="offset-1 col-8">
-      <div class="news-box mt-4 mx-auto pl-3">
+      <div class="top-box mt-4 mx-auto pl-3", style="height: 96%">
         <!--1つの行に2記事を表示する-->
         <div class="row mx-auto w-100">
           <% @posts.each do |post| %>
@@ -37,17 +37,60 @@
                 </div>
               <% end %>
             </div>
-            
+
           <% end %>
         </div>
-        
+
       </div>
     </div>
 
+    <!--ニュースのジャンル表示サイドバー-->
     <div class="col-3">
-      <%= link_to today_words_path do %>
-        <div class="mt-4 mx-auto p-4" style="background-color: green; width: 100%; height: 300px;"></div>
-      <% end %>
+      <div class="top-box mt-4 mx-auto", style="height: 96%">
+        <table class="table table-borderless">
+          <thead>
+            <th>ジャンル一覧</th>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+              <tr><td>
+                <%= link_to posts_path do %>
+                  <%= link_to genre.name, posts_path(genre_id: genre.id) %>
+                <% end %>
+              </td></tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!--新着質問板-->
+  <div class="row">
+    <div class="offset-1 col-11">
+      <div class="top-box mt-4 mx-auto">
+
+        <div class="row mt-3">
+          <span class="col-3 h3 ml-5 font-weight-bold">新着質問板</span>
+          <!--検索欄-->
+          <div class="offset-2 col-6 input-group">
+            <input class="form-control" placeholder="質問を検索">
+            <button class="btn btn-outline-success", style="height: 92%;"><i class="fas fa-search"></i> 検索</button>
+          </div>
+        </div>
+
+        <!--1質問-->
+        <% @questions.each do |question| %>
+          <div class="question mt-3 border mx-auto">
+            <div class="question-title m-3">
+              <%= link_to question.title, question_path(question) %>
+            </div>
+            <hr>
+          </div>
+        <% end %>
+
+      </div>
     </div>
   </div>
 
