@@ -11,9 +11,8 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"
-import Swiper from 'swiper/swiper-bundle.js';
-import 'swiper/swiper-bundle.css';
+import "../stylesheets/application" 
+
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()

@@ -1,4 +1,4 @@
-class Public::TodayWordsController < ApplicationController
+class Public::TodayWordsController < Public::ApplicationController
   
   def index
   end

@@ -1,4 +1,4 @@
-class Admin::TodayWordsController < ApplicationController
+class Admin::TodayWordsController < Admin::ApplicationController
   
   def new
   end

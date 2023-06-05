@@ -18,7 +18,12 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:index, :show]
 
-    resources :questions, only: [:new, :create, :index, :show]
+    resources :questions, only: [:new, :create, :index, :show] do
+      resources :answers, only: [:create]
+      resource :evaluations, only: [:create, :destroy]
+    end
+
+    resources :bookmarks, only: [:create, :index, :destroy]
 
     resources :users, only: [:show, :edit, :update]
     get '/users/:id/confirm' => 'users#confirm'
@@ -32,11 +37,13 @@ Rails.application.routes.draw do
 
     resources :today_words, only: [:new, :create, :index, :edit, :update, :destroy]
 
+    resources :genres, only: [:create, :index, :edit, :update, :destroy]
+
     resources :posts, only: [:new, :create, :index, :edit, :update, :destroy]
 
-    resources :questions, only: [:index, :show]
-    delete '/questions/:id' => 'questions#destroy_question'
-    delete '/questions/:id/answer/:answer_id' => 'questions#destroy_answer'
+    resources :questions, only: [:index, :show, :destroy] do
+      resources :answers, only: [:index, :destroy]
+    end
 
     resources :users, only: [:index, :show, :edit, :update]
 
