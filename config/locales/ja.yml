@@ -46,3 +46,12 @@ ja:
         living_are: "居住地域"
         answer_rank: "アンサーランク"
         is_deleted: "会員ステータス"
+      today_word:
+        japanese: "単語（日本語）"
+        chinese: "単語（中国語）"
+        pinyin: "拼音"
+        example_japanese: "例文（日本語）"
+        example_chinese: "例文（中国語）"
+        description: "一言解説"
+        synonym: "同義語"
+        is_active: "公開ステータス"
