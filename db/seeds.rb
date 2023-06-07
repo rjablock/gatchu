@@ -17,7 +17,7 @@ User.create!(
   [
     {
       email: 'test@gmail.com',
-      password: '00000000',
+      password: '0000000000',
       name: 'わんごろう',
       introduction:  '犬といったら犬なんです',
       gender: 2,
@@ -32,7 +32,7 @@ User.create!(
 10.times do |n|
   User.create!(
     email: "user#{n}@gmail.com",
-    password: "000000",
+    password: "0000000000",
     name: "わんごろう#{n}",
     introduction:  '犬といったら犬なんです',
     gender: 0,
@@ -211,5 +211,17 @@ TodayWord.create!(
     }
   ]
 )
+
+10.times do |n|
+  TodayWord.create!(
+    japanese: "犬#{n}",
+    chinese: "狗#{n}",
+    pinyin: "gǒu#{n}",
+    example_japanese: "#{n}もし最遊記に犬が登場するのなら、絶対見るのになあ。",
+    example_chinese: "#{n}如果《最游记》中有一只狗出场的话，我一定就会去看的。",
+    description: "#{n}中国には奇妙な犬の神話がたくさんあります。",
+    synonym: "小狗#{n}"
+  )
+end
 
 puts "--------- all END"
