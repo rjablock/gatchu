@@ -1,2 +1,61 @@
-<h1>Admin::TodayWords#index</h1>
-<p>Find me in app/views/admin/today_words/index.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <div class="row">
+        <div class="col-9">
+           <h5 class="term-title ml-2 font-weight-bold">今日の中国語管理</h5>
+        </div>
+
+        <!--単語登録ボタン-->
+        <div class="col-3 mt-3">
+          <%= link_to new_admin_today_word_path, class: "py-2 px-3 btn btn-primary" do %>
+            <i class="fa-solid fa-file-circle-plus fa-lg"></i> 単語登録
+          <% end %>
+        </div>
+      </div>
+
+      <!--各列カラム名-->
+      <table class="table table-colored mt-3">
+        <thead>
+          <tr>
+            <th>単語ID</th>
+            <th>中国語</th>
+            <th>日本語</th>
+            <th>ステータス</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+
+        <!--単語一覧-->
+        <% @today_words.each do |today_word| %>
+          <tbody>
+            <tr>
+              <td class="align-middle"><%= today_word.id %></td>
+              <td class="align-middle"><%= today_word.chinese %></td>
+              <td class="align-middle"><%= today_word.japanese %></td>
+              <td class="align-middle">
+                <% if today_word.is_active %>
+                  <span style="color: green;">有効</span>
+                <% else %>
+                  <span style="color: gray;" >無効</span>
+                <% end %>
+              </td>
+              <td><%= link_to "編集", edit_admin_today_word_path(today_word), class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to "削除", admin_today_word_path(today_word), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "削除しますか？"} %></td>
+            </tr>
+          </tbody>
+        <% end %>
+
+      </table>
+
+      <!--ページネーションの設定-->
+      <div class="row">
+        <div class="mt-2 mx-auto">
+          <%= paginate @today_words, theme: 'bootstrap-5' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
