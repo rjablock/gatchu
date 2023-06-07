@@ -33,3 +33,16 @@ ja:
       answer_rank:
         normal: "一般"
         master: "マスター"
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "ユーザー名"
+        introduction: "自己紹介"
+        gender: "性別"
+        age: "年齢層"
+        study_background: "中国語学習歴"
+        living_are: "居住地域"
+        answer_rank: "アンサーランク"
+        is_deleted: "会員ステータス"
