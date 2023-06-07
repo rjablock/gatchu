@@ -1,2 +1,61 @@
-<h1>Admin::TodayWords#new</h1>
-<p>Find me in app/views/admin/today_words/new.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @today_word %>
+
+      <h5 class="term-title ml-2 font-weight-bold">今日の中国語登録</h5>
+
+      <div class="mt-4 form-group">
+        <%= form_with model: [:admin, @today_word], url: admin_today_words_path do |f| %>
+          <!--新規単語登録フォーム-->
+          <table class="table table-borderless">
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">単語（中国語）</td>
+              <td><%= f.text_field :chinese, placeholder: "単詞", class: "form-control", style: "width: 50%;" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">拼音</td>
+              <td><%= f.text_field :pinyin, placeholder: "pinyin", class: "form-control", style: "width: 50%;" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">単語（日本語）</td>
+              <td><%= f.text_field :japanese, placeholder: "pinyin", class: "form-control", style: "width: 50%;" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">例文（中国語）</td>
+              <td><%= f.text_field :example_chinese, placeholder: "用法", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">例文（日本語）</td>
+              <td><%= f.text_field :example_japanese, placeholder: "例文", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%">同義語</td>
+              <td><%= f.text_field :synonym, placeholder: "単詞", class: "form-control", style: "width: 50%;" %></td>
+            </tr>
+            <tr>
+              <td class="pt-4 font-weight-bold" style="width: 30%">一言解説</td>
+              <td><%= f.text_area :description, placeholder: "解説文", class: "form-control", style: "height: 130px;" %></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold" style="width: 30%">販売ステータス</td>
+              <td>
+                <%= f.radio_button :is_active, true, checked: true %>
+                <%= label_tag :is_active_true, "有効" %>
+                <%= f.radio_button :is_active, false, class: "ml-3" %>
+                <%= label_tag :is_active_false, "無効" %>
+              </td>
+            </tr>
+          </table>
+          <!--新規単語登録ボタン-->
+          <div class="text-center">
+            <%= f.submit "単語を登録する", class: "mt-2 btn btn-primary btn-lg" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
