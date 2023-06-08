@@ -3,8 +3,8 @@
     <div class="offset-1 col-11">
 
       <div class="row">
-        <div class="col-3">
-           <h5 class="term-title ml-2 font-weight-bold">ジャンル管理</h5>
+        <div class="col-6">
+           <h5 class="term-title ml-2 font-weight-bold">ジャンル管理（最大13項目）</h5>
         </div>
 
         <!--ジャンル新規登録欄（ポップアップ表示）-->
@@ -24,7 +24,7 @@
         </div>
 
         <!--ジャンル作成ボタン-->
-        <div class="offset-6 col-3 mt-3">
+        <div class="offset-3 col-3 mt-3">
           <div class="py-2 px-3 btn btn-primary" id="new-genre-button">
              <i class="fa-solid fa-tags fa-lg"></i> ジャンル作成
           </div>
@@ -55,13 +55,6 @@
         <% end %>
 
       </table>
-
-      <!--ページネーションの設定-->
-      <div class="row">
-        <div class="mt-2 mx-auto">
-          <%= paginate @genres, theme: 'bootstrap-5' %>
-        </div>
-      </div>
 
     </div>
   </div>
