@@ -15,13 +15,7 @@ class Admin::GenresController < Admin::ApplicationController
   def index
   end
 
-  def edit
-  end
-
   def update
-  end
-
-  def destroy
   end
 
   private
