@@ -28,7 +28,7 @@
                     <%= post.genre.name %>
                   </div>
                   <div class="news-caption ml-3 mr-1">
-                    <%= post.title %>
+                    <%= truncate(post.title, length: 22, omission: '...') %>
                   </div>
                   <div class="m-3 text-dark" style="font-size: 12px">
                     <i class="far fa-clock"></i>
@@ -88,7 +88,7 @@
         <% @questions.each do |question| %>
           <div class="question mt-3 border mx-auto">
             <div class="question-title m-3">
-              <%= link_to question.title, question_path(question) %>
+              <%= link_to truncate(question.title, length: 34, omission: '...'), question_path(question) %>
             </div>
             <hr>
             <!--回答者情報-->

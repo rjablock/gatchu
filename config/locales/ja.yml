@@ -55,3 +55,7 @@ ja:
         description: "一言解説"
         synonym: "同義語"
         is_active: "公開ステータス"
+      # question:
+      #   user_id: "会員ID"
+      #   title: "タイトル"
+      #   body: "質問文"

@@ -29,7 +29,7 @@ User.create!(
   ]
 )
 
-1.times do |n|
+10.times do |n|
   User.create!(
     email: "user#{n}@gmail.com",
     password: "0000000000",
