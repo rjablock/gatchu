@@ -22,6 +22,8 @@ class Admin::PostsController < Admin::ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @genres = Genre.all
+    @genre = Genre.new
   end
 
   def update
@@ -29,6 +31,7 @@ class Admin::PostsController < Admin::ApplicationController
     if @post.update(post_params)
       redirect_to admin_posts_path
     else
+      @genres = Genre.all
       render :edit
     end
   end
