@@ -1,2 +1,22 @@
-<h1>Public::TodayWords#index</h1>
-<p>Find me in app/views/public/today_words/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <h3 class="pt-5 ml-5 font-weight-bold">今日の中国語一覧</h3>
+
+      <div class="content-box mt-4">
+
+        <!--1枠-->
+        <% @today_words.each do |today_word| %>
+          <%= link_to today_word.pinyin, today_word_path(today_word) %>
+          <%= today_word.chinese %>
+          <%= today_word.japanese %>
+          <%= today_word.example_chinese %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
