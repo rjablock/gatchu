@@ -21,6 +21,14 @@ class Admin::GenresController < Admin::ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      flash[:notice] = "ジャンル名の更新に成功しました。"
+      redirect_to request.referer
+    else
+      flash[:alert] = "ジャンル名の更新に失敗しました。"
+      redirect_to request.referer
+    end
   end
 
   private

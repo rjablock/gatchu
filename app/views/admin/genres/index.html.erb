@@ -47,9 +47,17 @@
           <tbody>
             <tr>
               <td class="align-middle"><%= genre.id %></td>
-              <td class="align-middle"><%= genre.name %></td>
-              <td class="align-middle"><%= genre.posts.count %></td>
-              <td><div class="py-2 px-3 btn btn-success btn-sm">編集</div></td>
+              <%= form_with model: [:admin, genre], url: admin_genre_path(genre) do |f| %>
+                <td class="align-middle">
+                  <span class="genre-name"><%= genre.name %></span>
+                  <%= f.text_field :name, placeholder: "ジャンル名を入力", class: "genre-edit-input", style: "display: none;" %>
+                </td>
+                <td class="align-middle"><%= genre.posts.count %></td>
+                <td>
+                  <div class="py-2 px-3 btn btn-success btn-sm edit-button">編集</div>
+                  <%= f.submit "保存", class: "py-2 px-3 btn btn-primary btn-sm save-button", style: "display: none;" %>
+                </td>
+              <% end %>
             </tr>
           </tbody>
         <% end %>
@@ -91,5 +99,36 @@
       element.fadeOut(300);
       $(document).off("click", outsideClick); // 非表示中は`outsideClick`関数を無効にする
     }
+  });
+</script>
+
+<!--編集ボタン押下後、フォームが出現し保存ボタンに切り替わる-->
+<script>
+  $(document).ready(function() {
+    $(".edit-button").click(function() {
+      var row = $(this).closest("tr");
+      var nameCell = row.find(".genre-name");
+      var editInput = row.find(".genre-edit-input");
+      var saveButton = row.find(".save-button");
+
+      nameCell.hide();
+      editInput.show().focus();
+      saveButton.show();
+      $(this).hide();
+    });
+
+    $(".save-button").click(function() {
+      var row = $(this).closest("tr");
+      var nameCell = row.find(".genre-name");
+      var editInput = row.find(".genre-edit-input");
+      var editButton = row.find(".edit-button");
+
+      var newName = editInput.val();
+      nameCell.text(newName);
+      nameCell.show();
+      editInput.hide();
+      $(this).hide();
+      editButton.show();
+    });
   });
 </script>
