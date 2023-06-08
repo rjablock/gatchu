@@ -13,6 +13,7 @@ class Admin::GenresController < Admin::ApplicationController
   end
 
   def index
+    @genres = Genre.all.page(params[:page]).order(:id).per(10)
   end
 
   def update

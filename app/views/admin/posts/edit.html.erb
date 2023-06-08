@@ -95,19 +95,20 @@
     // 引数で指定された要素をスライドダウンさせ、出現させる処理
     function slideDown(element) {
       element.fadeIn(300);
-      $(document).on("click", outsideClick);
+      $(document).on("click", outsideClick); // 表示中は`outsideClick`関数を有効にする
+    }
+
+    // ポップアップ表示画面外をクリックすることでスライドアップさせる
+    function outsideClick(event) {
+      if (!$(event.target).closest(newGenreForm).length) { //「クリックされた要素が内部である場合には数値が返され、それ以外の場合は0となる」の否定形
+        slideUp(newGenreForm);
+      }
     }
 
     //引数で指定された要素をスライドアップさせ、引っ込ませる処理
     function slideUp(element) {
       element.fadeOut(300);
-    }
-
-    // ポップアップ表示画面外をクリックすることでスライドアップさせる
-    function outsideClick(event) {
-      if (!$(event.target).closest(newGenreForm).length) {
-        slideUp(newGenreForm);
-      }
+      $(document).off("click", outsideClick); // 非表示中は`outsideClick`関数を無効にする
     }
   });
 </script>
