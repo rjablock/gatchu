@@ -105,7 +105,7 @@
 <!--編集ボタン押下後、フォームが出現し保存ボタンに切り替わる-->
 <script>
   $(document).ready(function() {
-    $(".edit-button").click(function() {
+    $(".edit-button").click(function() { //編集ボタンが押された時の処理
       var row = $(this).closest("tr");
       var nameCell = row.find(".genre-name");
       var editInput = row.find(".genre-edit-input");
@@ -117,13 +117,13 @@
       $(this).hide();
     });
 
-    $(".save-button").click(function() {
+    $(".save-button").click(function() { //保存ボタンが押された時の処理
       var row = $(this).closest("tr");
       var nameCell = row.find(".genre-name");
       var editInput = row.find(".genre-edit-input");
       var editButton = row.find(".edit-button");
 
-      nameCell.text(editInput.val()).show();
+      nameCell.text(editInput.val()).show(); //「nameCell」のテキストを「editInput」の値に置き換えて表示
       editInput.hide();
       $(this).hide();
       editButton.show();
