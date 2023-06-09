@@ -83,7 +83,7 @@
 
     // 引数で指定された要素をスライドダウンさせ、出現させる処理
     function slideDown(element) {
-      element.fadeIn(300);
+      element.slideDown(300);
       $(document).on("click", outsideClick); // 表示中は`outsideClick`関数を有効にする
     }
 
@@ -96,7 +96,7 @@
 
     //引数で指定された要素をスライドアップさせ、引っ込ませる処理
     function slideUp(element) {
-      element.fadeOut(300);
+      element.slideUp(300);
       $(document).off("click", outsideClick); // 非表示中は`outsideClick`関数を無効にする
     }
   });
@@ -123,9 +123,7 @@
       var editInput = row.find(".genre-edit-input");
       var editButton = row.find(".edit-button");
 
-      var newName = editInput.val();
-      nameCell.text(newName);
-      nameCell.show();
+      nameCell.text(editInput.val()).show();
       editInput.hide();
       $(this).hide();
       editButton.show();
