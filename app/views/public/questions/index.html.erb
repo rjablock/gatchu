@@ -16,15 +16,15 @@
       </div>
 
       <!--ソートタブ-->
-      <% new_tab_active = 'active' if @order == "new" %>
-      <% popular_tab_active = 'active' if @order == "popular" %>
+      <% new_tab_active = 'active' if @order == Public::QuestionsController::ORDER_BY_NEW %>
+      <% popular_tab_active = 'active' if @order == Public::QuestionsController::ORDER_BY_POPULAR %>
 
       <ul class="nav nav-tabs mt-4">
         <li class="nav-item">
           <%= link_to "新着順", questions_path, class: "nav-link #{new_tab_active}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "人気順", questions_path(order: "popular"), class: "nav-link #{popular_tab_active}" %>
+          <%= link_to "人気順", questions_path(order: Public::QuestionsController::ORDER_BY_POPULAR), class: "nav-link #{popular_tab_active}" %>
         </li>
       </ul>
 
