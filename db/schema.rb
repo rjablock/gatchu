@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2023_06_04_075029) do
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body", null: false
+    t.integer "views_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
