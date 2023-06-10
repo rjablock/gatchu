@@ -11,4 +11,8 @@ class Question < ApplicationRecord
     bookmarks.exists?(user_id: user.id)
   end
 
+  def increment_views_count!
+    increment!(:views_count)
+  end
+
 end

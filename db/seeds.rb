@@ -64,6 +64,14 @@ Question.create!(
   ]
 )
 
+10.times do |n|
+  Question.create!(
+    user_id: 5,
+    title: "「鳥のさえずり」を中国語でいうと？#{n}",
+    body: "チュンチュン、というアレです。#{n}"
+  )
+end
+
 puts "--------- create Answer"
 Answer.create!(
   [
