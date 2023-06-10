@@ -21,15 +21,15 @@
 
       <ul class="nav nav-tabs mt-4">
         <li class="nav-item">
-          <%= link_to "新着順", questions_path, class: "nav-link #{new_tab_active}" %>
+          <%= link_to "新着順", questions_path, class: "nav-link text-color #{new_tab_active}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "人気順", questions_path(order: Public::QuestionsController::ORDER_BY_POPULAR), class: "nav-link #{popular_tab_active}" %>
+          <%= link_to "人気順", questions_path(order: Public::QuestionsController::ORDER_BY_POPULAR), class: "nav-link text-color #{popular_tab_active}" %>
         </li>
       </ul>
 
       <div class="content-box">
-        
+
         <!--1質問-->
         <% @questions.each do |question| %>
           <div class="question mt-3 border mx-auto">
