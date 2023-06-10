@@ -125,7 +125,6 @@
                 <% else %>
                   <!--ユーザーが未ログインの場合はログインページに遷移する-->
                   <%= link_to new_user_session_path do %>
-                    <% flash[:alert] = "ブックマーク機能のご利用にはログインが必要です。" %>
                     <i class="far fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
                   <% end %>
                 <% end %>
