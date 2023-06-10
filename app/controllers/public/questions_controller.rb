@@ -1,11 +1,19 @@
 class Public::QuestionsController < Public::ApplicationController
 
   def new
+    @question = Question.new
   end
 
   def create
+    @question = Question.new(question_params)
+    @question.user_id = current_user.id
+    if @question.save
+      redirect_to question_path(@question)
+    else
+      render :new
+    end
   end
-  
+
   ORDER_BY_POPULAR = 'popular'
   ORDER_BY_NEW = 'new'
 
@@ -22,6 +30,12 @@ class Public::QuestionsController < Public::ApplicationController
   def show
     @question = Question.find(params[:id])
     @question.increment_views_count!
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:title, :body)
   end
 
 end

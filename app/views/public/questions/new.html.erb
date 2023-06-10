@@ -1,2 +1,70 @@
-<h1>Public::Questions#new</h1>
-<p>Find me in app/views/public/questions/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @question %>
+
+      <div class="content-box", style="margin-top: 100px;">
+
+        <h4 class="ml-5 mt-4 font-weight-bold">質問作成</h4>
+
+        <div class="mt-4 form-group">
+          <%= form_with model: @question, url: questions_path do |f| %>
+            <!--新規質問登録フォーム-->
+            <div class="row">
+              <div class="col-11 mx-auto">
+                <table class="table table-borderless">
+                  <tr>
+                    <td class="align-middle font-weight-bold">タイトル</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= f.text_field :title, placeholder: "タイトルを入力", class: "form-control" %>
+                      <div id="title-count" class="mt-1 text-right text-muted">0 / 50文字</div>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td class="pt-4 align-middle font-weight-bold">質問内容</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= f.text_area :body, placeholder: "質問本文を入力", class: "form-control", style: "height: 160px;" %>
+                      <div id="body-count" class="mt-1 text-right text-muted">0 / 300文字</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!--新規質問作成ボタン-->
+            <div class="text-center">
+              <%= f.submit "質問を作成する", class: "mt-2 btn btn-primary btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--文字数カウンター-->
+<script>
+  $(document).ready(function() {
+    const textField = $("#question_title");
+    const textArea = $("#question_body");
+    const titleCount = $("#title-count");
+    const bodyCount = $("#body-count");
+
+    textField.on("input", function() {
+      const count = textField.val().length;
+      titleCount.text(count + " / 50文字");
+    })
+
+    textArea.on("input", function() {
+      const count = textArea.val().length;
+      bodyCount.text(count + " / 300文字");
+    });
+  });
+</script>
