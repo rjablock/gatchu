@@ -28,9 +28,16 @@ class Public::QuestionsController < Public::ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find_by(id: params[:id])
     @question.increment_views_count!
     @answer = Answer.new
+
+    @previous_question = Question.where("id < ?", @question).order(id: "DESC").first
+    @next_question = Question.where("id > ?", @question).order(:id).first
+
+    if @question.nil?
+      redirect_to questions_path, alert: "質問が見つかりません。"
+    end
   end
 
   private

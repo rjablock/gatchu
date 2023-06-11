@@ -38,7 +38,7 @@
             </div>
             <!--新規質問作成ボタン-->
             <div class="text-center">
-              <%= f.submit "質問を作成する", class: "mt-2 btn btn-primary btn-lg" %>
+              <%= f.submit "質問を作成する", class: "mt-2 btn btn-primary btn-lg", data: {confirm: "質問文は後から変更できません。投稿しますか？"} %>
             </div>
           <% end %>
         </div>
