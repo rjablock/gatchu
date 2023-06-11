@@ -118,7 +118,7 @@
                       <i class="fa-solid fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
                     <% end %>
                   <% else %>
-                    <%= link_to question_bookmarks_path(question, question_id: question.id), method: :post do %>
+                    <%= link_to question_bookmarks_path(question), method: :post do %>
                       <i class="far fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
                     <% end %>
                   <% end %>

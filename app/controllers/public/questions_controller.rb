@@ -30,6 +30,7 @@ class Public::QuestionsController < Public::ApplicationController
   def show
     @question = Question.find(params[:id])
     @question.increment_views_count!
+    @answer = Answer.new
   end
 
   private

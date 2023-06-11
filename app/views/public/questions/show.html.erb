@@ -1,2 +1,81 @@
-<h1>Public::Questions#show</h1>
-<p>Find me in app/views/public/questions/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @answer %>
+
+      <!--質問内容-->
+      <div class="content-box mt-5">
+        <div class="profile-image mt-3">
+          <%= link_to user_path(@question.user) do %>
+            <%= image_tag @question.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+          <% end %>
+          <%= @question.user.name %>
+        </div>
+        <div class="h4 mt-4 px-3 font-weight-bold text-center">
+          <%= @question.title %><hr style="width: 90%; border: none; height: 3px; background-color: #066285; border-radius: 10px;">
+        </div>
+        <div class="h5 p-4">
+          <%= @question.body %>
+        </div>
+        <div class="py-3 pr-4 text-right">
+          <%= @question.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+        </div>
+      </div>
+
+      <!--回答送信フォーム-->
+      <div class="content-box mt-4">
+        <%= form_with model: [@question, @answer], url: question_answers_path(@question) do |f| %>
+          <div class="row">
+            <div class="col-10">
+              <%= f.text_area :body, placeholder: "回答を入力してください", class: "form-control", style: "height: 120px;" %>
+              <div id="body-count" class="mt-1 text-right text-muted">0 / 300文字</div>
+            </div>
+            <div class="col-2">
+              <%= f.submit "回答する", class: "btn btn-success", style: "height: 120px;" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!--回答一覧-->
+      <div class="content-box mt-4">
+        <h5 class="ml-5 mt-4 font-weight-bold">回答一覧</h4>
+        <!--1回答-->
+        <% @question.answers.each do |answer| %>
+          <div class="question mt-3 border mx-auto">
+            <div class="profile-image mt-3 ml-3">
+              <%= link_to user_path(answer.user) do %>
+                <%= image_tag answer.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+              <% end %>
+              <%= answer.user.name %>
+            </div>
+            <!--回答文-->
+            <div class="h5 px-5 pt-3">
+              <%= answer.body %>
+            </div>
+            <div class="py-3 pr-4 text-right" style="font-size: 14px;">
+              <%= answer.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--文字数カウンター-->
+<script>
+  $(document).ready(function() {
+    const textArea = $("#answer_body");
+    const bodyCount = $("#body-count");
+
+    textArea.on("input", function() {
+      const count = textArea.val().length;
+      bodyCount.text(count + " / 300文字");
+    });
+  });
+</script>
