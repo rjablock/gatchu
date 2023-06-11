@@ -7,12 +7,41 @@
 
       <!--質問内容-->
       <div class="content-box mt-5">
-        <div class="profile-image mt-3">
-          <%= link_to user_path(@question.user) do %>
-            <%= image_tag @question.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
-          <% end %>
-          <%= @question.user.name %>
+        <div class="row">
+          <!--質問者情報-->
+          <div class="col-8">
+            <div class="profile-image mt-3">
+              <%= link_to user_path(@question.user) do %>
+                <%= image_tag @question.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+              <% end %>
+              <%= @question.user.name %>
+            </div>
+          </div>
+          <!--ブックマーク・閲覧数-->
+          <div class="offset-1 col-3 mt-4">
+            <!--ブックマークボタン-->
+            <% if current_user %>
+              <% if @question.bookmarked_by?(current_user) %>
+                <%= link_to question_bookmark_path(@question, question_id: @question.id), method: :delete do %>
+                  <i class="fa-solid fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
+                <% end %>
+              <% else %>
+                <%= link_to question_bookmarks_path(@question), method: :post do %>
+                  <i class="far fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <!--ユーザーが未ログインの場合はログインページに遷移する-->
+              <%= link_to new_user_session_path do %>
+                <i class="far fa-bookmark" aria-hidden="true" style="font-size: 20px; color: gray;"></i>
+              <% end %>
+            <% end %>
+            <span class="ml-1" style="font-size: 16px;"><%= @question.bookmarks.count %></span>
+            <i class="fas fa-eye ml-4 pt-1"  style="font-size: 20px;"></i>
+            <span class="ml-1" style="font-size: 16px;"><%= @question.views_count %></span>
+          </div>
         </div>
+        <!--質問本文-->
         <div class="h4 mt-4 px-3 font-weight-bold text-center">
           <%= @question.title %><hr style="width: 90%; border: none; height: 3px; background-color: #066285; border-radius: 10px;">
         </div>
