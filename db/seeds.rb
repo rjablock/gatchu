@@ -94,12 +94,10 @@ Evaluation.create!(
     {
       user_id: 3,
       answer_id: 1,
-      status: 0
     },
     {
       user_id: 3,
       answer_id: 2,
-      status: 1
     }
   ]
 )

@@ -4,7 +4,6 @@ class CreateEvaluations < ActiveRecord::Migration[6.1]
       
       t.integer :user_id,   null: false
       t.integer :answer_id, null: false
-      t.integer :status
 
       t.timestamps
     end
