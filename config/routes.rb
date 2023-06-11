@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
 
     resources :questions, only: [:new, :create, :index, :show] do
-      resources :answers, only: [:create]
       resources :bookmarks, only: [:create, :destroy]
-      resource :evaluations, only: [:create, :destroy]
+      resources :answers, only: [:create] do
+        resource :evaluations, only: [:create, :destroy]
+      end
     end
 
     resources :users, only: [:show, :edit, :update] do
