@@ -46,6 +46,12 @@ body{
     margin-bottom: 1rem;
     width: 95%;
   }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #ff8c00;
+  }
 }
 
 .word_card{
