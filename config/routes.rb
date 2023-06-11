@@ -19,13 +19,15 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
 
     resources :questions, only: [:new, :create, :index, :show] do
-      resources :answers, only: [:create]
-      resource :evaluations, only: [:create, :destroy]
+      resources :bookmarks, only: [:create, :destroy]
+      resources :answers, only: [:create] do
+        resource :evaluations, only: [:create, :destroy]
+      end
     end
 
-    resources :bookmarks, only: [:create, :index, :destroy]
-
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      resources :bookmarks, only: [:index]
+    end
     get '/users/:id/confirm' => 'users#confirm'
     patch '/users/:id/quit' => 'users#quit'
 

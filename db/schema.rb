@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2023_06_04_075029) do
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "answer_id", null: false
-    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,6 +93,7 @@ ActiveRecord::Schema.define(version: 2023_06_04_075029) do
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body", null: false
+    t.integer "views_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -9,4 +9,14 @@
     margin-bottom: 2rem;
     width: 85%;
   }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #066285;
+  }
+}
+
+.text-color {
+  color: #066285;
 }

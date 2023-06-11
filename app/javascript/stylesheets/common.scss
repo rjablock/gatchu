@@ -1,3 +1,12 @@
+body{
+  background: linear-gradient(to bottom right, #8bc5ec, #f0aa8f);
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+.main{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 .content-box{
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
@@ -37,6 +46,12 @@
     margin-bottom: 1rem;
     width: 95%;
   }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #ff8c00;
+  }
 }
 
 .word_card{
@@ -47,5 +62,11 @@
   border-radius: 10px;
   width: 95%;
   background-color: white;
+  }
+}
+
+.delete-underline {
+  a {
+    text-decoration: none !important;
   }
 }

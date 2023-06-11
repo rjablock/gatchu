@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/0fa15b6b25.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +18,7 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-3 fixed-sidebar text-center" style="background-color: #FFDC44; height: 100%;">
+        <div class="col-3 fixed-sidebar text-center" style="background-color: #fccc4a; height: 100%;">
           <p class="border border-dark p-5 my-5" style="font-size: 50px;">
             <%= link_to "LOGO", root_path, class: "text-dark" %>
           </p>
@@ -24,49 +26,109 @@
           <% if user_signed_in? %>
             <!--会員側ログイン時-->
             <div class="menu h4">
-              <p><%= link_to "今日の中国語", today_words_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "ニュース", posts_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "質問板", questions_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "マイページ", user_path(current_user), class: "text-dark" %></p><hr>
-              <p><%= link_to "ログアウト", destroy_user_session_path, class: "text-dark", method: :delete %></p><hr>
+              <p>
+                <%= link_to today_words_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to user_path(current_user), class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> マイページ
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to destroy_user_session_path, class: "text-color", method: :delete do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログアウト
+                <% end %>
+              </p><hr>
             </div>
           <% elsif admin_signed_in? %>
             <!--管理側ログイン時-->
             <div class="menu h4">
-              <p><%= link_to "中国語管理", admin_today_words_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "ニュース管理", admin_posts_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "質問板管理", admin_questions_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "会員管理", admin_users_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "ログアウト", destroy_admin_session_path, class: "text-dark", method: :delete %></p><hr>
+              <p>
+                <%= link_to admin_today_words_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 中国語管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_users_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 会員管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to destroy_admin_session_path, class: "text-color", method: :delete do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログアウト
+                <% end %>
+              </p><hr>
             </div>
           <% else %>
             <!--未ログイン時-->
             <div class="menu h4">
-              <p><%= link_to "今日の中国語", today_words_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "ニュース", posts_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "質問板", questions_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "ログイン", new_user_session_path, class: "text-dark" %></p><hr>
-              <p><%= link_to "新規登録", new_user_registration_path, class: "text-dark" %></p><hr>
+              <p>
+                <%= link_to today_words_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to new_user_session_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログイン
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to new_user_registration_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 新規登録
+                <% end %>
+              </p><hr>
             </div>
           <% end %>
 
-          <div class="social h1">
+          <div class="menu h1">
             <%= link_to "https://twitter.com", class: "mx-2" do %>
-              <i class="fa-brands fa-twitter" style="color: #000000;"></i>
+              <i class="fa-brands fa-twitter text-color"></i>
             <% end %>
             <%= link_to "https://instagram.com/", class: "mx-2" do %>
-              <i class="fa-brands fa-instagram" style="color: #000000;"></i>
+              <i class="fa-brands fa-instagram text-color"></i>
             <% end %>
             <%= link_to "https://tiktok.com/", class: "mx-2" do %>
-              <i class="fa-brands fa-tiktok" style="color: #000000;"></i>
+              <i class="fa-brands fa-tiktok text-color"></i>
             <% end %>
           </div>
 
-          <p>copyright</p>
+          <p class="text-color">copyright</p>
 
         </div>
 
-        <div class="col-9">
+        <div class="main col-9">
           <!--フラッシュメッセージ-->
           <%= render 'layouts/flash' %>
           <%= yield %>
