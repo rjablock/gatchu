@@ -20,16 +20,16 @@
                   </tr>
                   <tr>
                     <td>
-                      <%= f.text_field :title, placeholder: "タイトルを入力", class: "form-control" %>
+                      <%= f.text_field :title, placeholder: "質問タイトルを入力してください", class: "form-control" %>
                       <div id="title-count" class="mt-1 text-right text-muted">0 / 50文字</div>
                       </td>
                   </tr>
                   <tr>
-                    <td class="align-middle font-weight-bold">質問内容</td>
+                    <td class="align-middle font-weight-bold">質問文</td>
                   </tr>
                   <tr>
                     <td>
-                      <%= f.text_area :body, placeholder: "質問本文を入力", class: "form-control", style: "height: 160px;" %>
+                      <%= f.text_area :body, placeholder: "質問内容を入力してください", class: "form-control", style: "height: 160px;" %>
                       <div id="body-count" class="mt-1 text-right text-muted">0 / 300文字</div>
                     </td>
                   </tr>

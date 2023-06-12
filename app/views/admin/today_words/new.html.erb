@@ -5,7 +5,7 @@
       <!--エラーメッセージ-->
       <%= render 'layouts/errors', obj: @today_word %>
 
-      <h5 class="term-title ml-2 font-weight-bold">今日の中国語登録</h5>
+      <h5 class="h4 ml-5 pt-4 font-weight-bold">今日の中国語登録</h5>
 
       <div class="mt-4 form-group">
         <%= form_with model: [:admin, @today_word], url: admin_today_words_path do |f| %>

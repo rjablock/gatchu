@@ -3,8 +3,8 @@
     <div class="offset-1 col-11">
 
       <div class="row">
-        <div class="col-6">
-           <h5 class="term-title ml-2 font-weight-bold">ジャンル管理（最大13項目）</h5>
+        <div class="col-8">
+           <h5 class="h4 ml-5 pt-4 font-weight-bold">ジャンル管理</h5>
         </div>
 
         <!--ジャンル新規登録欄（ポップアップ表示）-->
@@ -14,7 +14,7 @@
               <tr>
                 <td>
                   <%= form_with model: @genre, url: admin_genres_path, html: { class: "form-inline" } do |f| %>
-                    <%= f.text_field :name, name: "genre[name]", placeholder: "新規ジャンル名（最大6文字）", class: "col-8 form-control mr-2" %>
+                    <%= f.text_field :name, name: "genre[name]", placeholder: "新規ジャンル名（同名不可・最大6文字）", class: "col-8 form-control mr-2" %>
                     <%= f.submit "ジャンル作成", class:"col-3 btn btn-primary" %><br>
                     <p class="text-white pt-3"> ※作成をやめる場合は画面外をクリック</p>
                   <% end %>
@@ -24,45 +24,47 @@
         </div>
 
         <!--ジャンル作成ボタン-->
-        <div class="offset-3 col-3 mt-3">
-          <div class="py-2 px-3 btn btn-primary" id="new-genre-button">
+        <div class="col-4 mt-3">
+          <div class="py-2 px-3 ml-4 btn btn-primary" id="new-genre-button">
              <i class="fa-solid fa-tags fa-lg"></i> ジャンル作成
           </div>
         </div>
       </div>
 
-      <!--各列カラム名-->
-      <table class="table table-colored mt-3">
-        <thead>
-          <tr>
-            <th>ジャンルID</th>
-            <th>ジャンル名</th>
-            <th>記事の投稿数</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <!--ジャンル一覧-->
-        <% @genres.each do |genre| %>
-          <tbody>
+      <div class="admin-box mx-auto px-4">
+        <!--各列カラム名-->
+        <table class="table table-colored mt-3">
+          <thead>
             <tr>
-              <td class="align-middle"><%= genre.id %></td>
-              <%= form_with model: [:admin, genre], url: admin_genre_path(genre) do |f| %>
-                <td class="align-middle">
-                  <span class="genre-name"><%= genre.name %></span>
-                  <%= f.text_field :name, placeholder: "ジャンル名を入力", class: "genre-edit-input", style: "display: none;" %>
-                </td>
-                <td class="align-middle"><%= genre.posts.count %></td>
-                <td>
-                  <div class="py-2 px-3 btn btn-success btn-sm edit-button">編集</div>
-                  <%= f.submit "保存", class: "py-2 px-3 btn btn-primary btn-sm save-button", style: "display: none;" %>
-                </td>
-              <% end %>
+              <th>ジャンルID</th>
+              <th>ジャンル名（最大6文字）</th>
+              <th>記事の投稿数</th>
+              <th></th>
             </tr>
-          </tbody>
-        <% end %>
+          </thead>
 
-      </table>
+          <!--ジャンル一覧-->
+          <% @genres.each do |genre| %>
+            <tbody>
+              <tr>
+                <td class="align-middle"><%= genre.id %></td>
+                <%= form_with model: [:admin, genre], url: admin_genre_path(genre) do |f| %>
+                  <td class="align-middle">
+                    <span class="genre-name"><%= genre.name %></span>
+                    <%= f.text_field :name, placeholder: "ジャンル名（最大6文字）", class: "genre-edit-input", style: "display: none;" %>
+                  </td>
+                  <td class="align-middle"><%= genre.posts.count %></td>
+                  <td>
+                    <div class="py-2 px-3 btn btn-success btn-sm edit-button">編集</div>
+                    <%= f.submit "保存", class: "py-2 px-3 btn btn-primary btn-sm save-button", style: "display: none;" %>
+                  </td>
+                <% end %>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+      </div>
 
     </div>
   </div>

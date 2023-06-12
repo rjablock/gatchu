@@ -1,8 +1,8 @@
 class Admin::GenresController < Admin::ApplicationController
 
   def create
-    if Genre.count >= 13
-      flash[:alert] = "作成可能なジャンルは最大13項目です。"
+    if Genre.count >= 10
+      flash[:alert] = "作成可能なジャンルは最大10項目です。"
       redirect_to request.referer
     else
       @genre = Genre.new(genre_params)
