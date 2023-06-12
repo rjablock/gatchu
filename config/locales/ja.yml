@@ -58,3 +58,8 @@ ja:
       post:
         title: "タイトル"
         body: "本文"
+      question:
+        title: "タイトル"
+        body: "質問文"
+      answer:
+        body: "回答文"
