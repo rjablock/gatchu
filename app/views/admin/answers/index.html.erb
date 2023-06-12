@@ -1,2 +1,41 @@
-<h1>Admin::Answers#index</h1>
-<p>Find me in app/views/admin/answers/index.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <h5 class="h4 ml-5 pt-4 font-weight-bold">質問ID:<%= @question.id %>の回答管理</h5>
+
+      <div class="admin-box mx-auto px-4">
+        <!--各列カラム名-->
+        <table class="table table-colored mt-3">
+          <thead>
+            <tr>
+              <th>回答ID</th>
+              <th>回答文</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <!--質問一覧-->
+          <% @answers.each do |answer| %>
+            <tbody>
+              <tr>
+                <td class="align-middle"><%= answer.id %></td>
+                <td class="align-middle"><%= truncate(answer.body, length: 30, omission: '...') %></td>
+                <td><%= link_to "削除", admin_question_answer_path(@question, answer), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "削除しますか？"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+      </div>
+
+      <!--ページネーションの設定-->
+      <div class="row">
+        <div class="mt-2 mx-auto">
+          <%= paginate @answers, theme: 'bootstrap-5' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
