@@ -4,7 +4,7 @@
 
       <div class="row">
         <div class="col-9">
-           <h5 class="term-title ml-2 font-weight-bold">今日の中国語管理</h5>
+           <h5 class="h4 ml-5 pt-4 font-weight-bold">今日の中国語管理</h5>
         </div>
 
         <!--単語登録ボタン-->
@@ -15,6 +15,7 @@
         </div>
       </div>
 
+    <div class="admin-box mx-auto px-4">
       <!--各列カラム名-->
       <table class="table table-colored mt-3">
         <thead>
@@ -32,8 +33,8 @@
           <tbody>
             <tr>
               <td class="align-middle"><%= today_word.id %></td>
-              <td class="align-middle"><%= today_word.chinese %></td>
-              <td class="align-middle"><%= today_word.japanese %></td>
+              <td class="align-middle"><%= truncate(today_word.chinese, length: 9, omission: '...') %></td>
+              <td class="align-middle"><%= truncate(today_word.japanese, length: 9, omission: '...') %></td>
               <td class="align-middle">
                 <% if today_word.is_active %>
                   <span style="color: green;">有効</span>
@@ -48,6 +49,7 @@
         <% end %>
 
       </table>
+    </div>
 
       <!--ページネーションの設定-->
       <div class="row">
