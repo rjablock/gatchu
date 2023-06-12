@@ -3,11 +3,13 @@
     <div class="offset-1 col-11">
       <div class="content-box word_card" style="margin-top: 100px">
 
-        <!--記事タイトル-->
+        <!--記事タイトル欄-->
         <div class="my-3">
-          <div class="my-2 mx-3 border text-center text-dark" style="width: 23%; font-size: 18px">
-            <%= link_to @post.genre.name, posts_path(genre_id: @post.genre_id), class: "text-dark" %>
-          </div>
+          <%= link_to posts_path(genre_id: @post.genre_id) do %>
+            <div class="my-2 mx-3 border border-dark text-center text-dark" style="width: 23%; font-size: 18px;">
+              <%= @post.genre.name %>
+            </div>
+          <% end %>
           <div class="m-3 font-weight-bold" style="font-size: 26px">
             <%= @post.title %>
           </div>
@@ -18,7 +20,7 @@
         </div>
 
 
-        <!--記事見出し-->
+        <!--記事見出し画像-->
         <div><%= image_tag @post.get_image(685, 466) %></div>
 
         <!--記事本文-->
