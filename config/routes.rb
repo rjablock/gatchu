@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:new, :create, :index, :edit, :update, :destroy]
 
-    resources :questions, only: [:index, :show, :destroy] do
+    resources :questions, only: [:index, :destroy] do
       resources :answers, only: [:index, :destroy]
     end
 
