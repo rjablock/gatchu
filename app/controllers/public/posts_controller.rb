@@ -11,11 +11,12 @@ class Public::PostsController < Public::ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @previous_post = Post.where("id < ? AND is_active = ?", @post, true).order(id: "DESC").first
-    @next_post = Post.where("id > ? AND is_active = ?", @post, true).order(:id).first
 
     if @post.nil? || !@post.is_active
       redirect_to posts_path, alert: "記事が見つかりません。"
+    else
+      @previous_post = Post.where("id < ? AND is_active = ?", @post, true).order(id: "DESC").first
+      @next_post = Post.where("id > ? AND is_active = ?", @post, true).order(:id).first
     end
   end
 
