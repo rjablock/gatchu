@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true, length: { maximum: 10 }
+  validates :email, uniqueness: true
 
   enum gender:           { not_answer: 0, male: 1, female: 2 }
   enum age:              { unselected_age: 0, teen: 10, twenties: 20, thirties: 30, forties: 40, fifties: 50, sixties: 60, upper_seventies: 70 }
