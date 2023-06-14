@@ -1,2 +1,76 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @user %>
+
+       <h5 class="h4 ml-5 pt-4 font-weight-bold"><%= @user.name %>さんの会員情報編集</h5>
+
+      <div class="mt-4 form-group">
+        <%= form_with model: [:admin, @user], url: admin_user_path do |f| %>
+          <!--会員編集フォーム-->
+          <table class="table table-borderless">
+            <tr>
+              <td class="align-middle font-weight-bold" style="width: 30%;">会員ID</td>
+              <td><%= @user.id %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">ユーザー名</td>
+              <td><%= f.text_field :name, placeholder: "ユーザー名", class: "form-control col-6" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">自己紹介</td>
+              <td><%= f.text_area :introduction, placeholder: "自己紹介", class: "form-control col-10", style: "height: 120px;" %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">性別</td>
+              <td>
+                <%= f.radio_button :gender, "not_answer" %>
+                <%= label_tag :gender_not_answer, "回答しない" %>
+                <%= f.radio_button :gender, "male", class: "ml-3" %>
+                <%= label_tag :gender_male, "男性" %>
+                <%= f.radio_button :gender, "female", class: "ml-3" %>
+                <%= label_tag :gender_female, "女性" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">年齢</td>
+              <td><%= f.select :age, User.ages.keys.map { |k| [I18n.t("enums.user.age.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">中国語学習歴</td>
+              <td><%= f.select :study_background, User.study_backgrounds.keys.map { |k| [I18n.t("enums.user.study_background.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">居住地</td>
+              <td><%= f.select :living_area, User.living_areas.keys.map { |k| [I18n.t("enums.user.living_area.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6" } %></td>
+            </tr>
+            <tr>
+              <td class="pt-4 font-weight-bold">メールアドレス</td>
+              <td><%= f.text_field :email, placeholder: "メールアドレス", class: "form-control col-6" %></td>
+            </tr>
+            <tr>
+              <td class="pt-4 font-weight-bold">アンサーランク</td>
+              <td><%= f.select :answer_rank, User.answer_ranks.keys.map { |k| [I18n.t("enums.user.answer_rank.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">会員ステータス</td>
+              <td>
+                <%= f.radio_button :is_deleted, false %>
+                <%= label_tag :is_deleted_false, "有効" %>
+                <%= f.radio_button :is_deleted, true, class: "ml-3" %>
+                <%= label_tag :is_deleted_true, "退会" %>
+              </td>
+            </tr>
+          </table>
+          <!--変更を保存ボタン-->
+          <div class="text-center">
+            <%= f.submit "変更を保存する", class: "mt-2 btn btn-success btn-lg", data: { confirm: "変更を保存しますか？" } %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -43,7 +43,7 @@ ja:
         gender: "性別"
         age: "年齢層"
         study_background: "中国語学習歴"
-        living_are: "居住地域"
+        living_area: "居住地域"
         answer_rank: "アンサーランク"
         is_deleted: "会員ステータス"
       today_word:
