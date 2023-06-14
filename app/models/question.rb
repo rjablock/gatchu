@@ -16,7 +16,7 @@ class Question < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[title body]
+    %w[title]
   end
 
 end
