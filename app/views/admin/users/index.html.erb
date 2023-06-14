@@ -34,7 +34,7 @@
                 <td class="align-middle"><%= user.id %></td>
                 <td class="align-middle"><%= link_to truncate(user.name, length: 10, omission: '...'), admin_user_path(user) %></td>
                 <td class="align-middle"><%= truncate(user.email, length: 25, omission: '...') %></td>
-                <td class="align-middle"><%= user.answer_rank %></td>
+                <td class="align-middle"><%= user.answer_rank_i18n %></td>
                 <td class="align-middle">
                   <% if user.is_deleted %>
                     <span style="color: gray;">無効</span>
