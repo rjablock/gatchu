@@ -1,4 +1,5 @@
 class Public::QuestionsController < Public::ApplicationController
+  before_action :set_q, only: [:index, :search]
 
   def new
     @question = Question.new
@@ -41,10 +42,18 @@ class Public::QuestionsController < Public::ApplicationController
     end
   end
 
+  def search
+    @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
+  end
+
   private
 
   def question_params
     params.require(:question).permit(:title, :body)
+  end
+
+  def set_q
+    @q = Question.ransack(params[:q])
   end
 
 end

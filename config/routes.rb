@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       resources :answers, only: [:create] do
         resource :evaluations, only: [:create, :destroy]
       end
+      collection do
+        get 'search'
+      end
     end
 
     resources :users, only: [:show, :edit, :update] do
