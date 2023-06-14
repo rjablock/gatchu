@@ -46,7 +46,7 @@
           <td class="align-middle font-weight-bold" style="width: 30%">会員ステータス</td>
           <td>
             <% if @user.is_deleted %>
-              <span style="color: gray;">無効</span>
+              <span style="color: gray;">退会</span>
             <% else %>
               <span style="color: green;">有効</span>
             <% end %>
@@ -55,7 +55,11 @@
       </table>
       <!--編集するボタン-->
       <div class="text-center">
-        <%= link_to "編集する", edit_admin_user_path(@user), class: "mt-2 btn btn-success btn-lg" %>
+        <% unless @user.is_deleted %>
+          <%= link_to "編集する", edit_admin_user_path(@user), class: "mt-2 btn btn-success btn-lg" %>
+        <% else %>
+          <%= button_to "編集する", edit_admin_user_path(@user), class: "mt-2 btn btn-success btn-lg", disabled: true %>
+        <% end %>
       </div>
 
     </div>
