@@ -13,6 +13,18 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to admin_user_path(@user)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :gender, :age, :study_background, :living_area, :email, :answer_rank, :is_deleted)
   end
 
 end
