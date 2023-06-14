@@ -1,2 +1,60 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <div class="row">
+        <div class="col-6">
+           <h5 class="h4 ml-5 pt-4 font-weight-bold">会員管理</h5>
+        </div>
+
+        <!--検索欄-->
+        <div class="col-6 input-group mt-3">
+          <input class="form-control" placeholder="会員を検索">
+          <button class="btn btn-outline-success", style="height: 86%;"><i class="fas fa-search"></i> 検索</button>
+        </div>
+      </div>
+
+      <div class="admin-box mx-auto px-4">
+        <!--各列カラム名-->
+        <table class="table table-colored mt-3">
+          <thead>
+            <tr>
+              <th>会員ID</th>
+              <th>ユーザー名</th>
+              <th>メールアドレス</th>
+              <th>アンサーランク</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+
+          <!--会員一覧-->
+          <% @users.each do |user| %>
+            <tbody>
+              <tr>
+                <td class="align-middle"><%= user.id %></td>
+                <td class="align-middle"><%= link_to truncate(user.name, length: 10, omission: '...'), admin_user_path(user) %></td>
+                <td class="align-middle"><%= truncate(user.email, length: 25, omission: '...') %></td>
+                <td class="align-middle"><%= user.answer_rank %></td>
+                <td class="align-middle">
+                  <% if user.is_deleted %>
+                    <span style="color: gray;">無効</span>
+                  <% else %>
+                    <span style="color: green;">有効</span>
+                  <% end %>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+      </div>
+
+      <!--ページネーションの設定-->
+      <div class="row">
+        <div class="mt-2 mx-auto">
+          <%= paginate @users, theme: 'bootstrap-5' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
