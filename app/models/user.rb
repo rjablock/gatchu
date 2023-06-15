@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true, length: { maximum: 24 }
+  validates :introduction, length: { maximum: 100 }
   validates :email, uniqueness: true
 
   enum gender:           { not_answer: 0, male: 1, female: 2 }
