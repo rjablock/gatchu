@@ -2,7 +2,8 @@
   <div class="row">
     <div class="offset-1 col-11">
 
-      <div class="content-box", style="margin-top: 100px;">
+      <!--ユーザー情報-->
+      <div class="content-box", style="margin: 100px 0;">
 
         <div class="row pt-4 px-4">
           <div class="col-3 mr-5">
@@ -24,24 +25,54 @@
           </div>
         </div>
 
-        <table class="table table-borderless ml-5 mt-4">
-          <tr>
-            <td class="align-middle font-weight-bold" style="width: 13%">性別：</td>
-            <td><%= @user.gender_i18n %></td>
-          </tr>
-          <tr>
-            <td class="align-middle font-weight-bold">年齢：</td>
-           <td><%= @user.age_i18n %></td>
-          </tr>
-          <tr>
-            <td class="align-middle font-weight-bold">学習歴：</td>
-            <td><%= @user.study_background_i18n %></td>
-          </tr>
-          <tr>
-            <td class="align-middle font-weight-bold">居住地：</td>
-            <td><%= @user.living_area_i18n %></td>
-          </tr>
-        </table>
+        <div class="row mt-4">
+          <table class="offset-1 col-3 table table-borderless">
+            <tr>
+              <td class="align-middle font-weight-bold">性別：</td>
+              <td><%= @user.gender_i18n %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">年齢：</td>
+             <td><%= @user.age_i18n %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">学習歴：</td>
+              <td><%= @user.study_background_i18n %></td>
+            </tr>
+            <tr>
+              <td class="align-middle font-weight-bold">居住地：</td>
+              <td><%= @user.living_area_i18n %></td>
+            </tr>
+          </table>
+          <div class="offset-1 col-7 mt-2">
+            <span class="font-weight-bold">自己紹介：</span><br>
+            <span><%= @user.introduction %></span>
+          </div>
+        </div>
+
+        <div class="row mt-3 mx-2">
+          <div class="col-6">
+            <span class="ml-3 font-weight-bold">投稿した質問</span><br>
+            <div class="container mt-2 border border-success" style="height: 150px; overflow: auto;">
+              <% @posted_questions.each do |question| %>
+                <div class="mt-1", style="font-size: 13px;">
+                  <%= link_to question.title, question_path(question) %><hr class="my-1">
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-6">
+            <span class="ml-3 font-weight-bold">回答をつけた質問</span><br>
+            <div class="container mt-2 border border-success" style="height: 150px; overflow: auto;">
+              <% @answered_questions.each do |question| %>
+                <div class="mt-1", style="font-size: 13px;">
+                  <%= link_to question.title, question_path(question) %><hr class="my-1">
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-6"></div>
+        </div>
 
       </div>
 
