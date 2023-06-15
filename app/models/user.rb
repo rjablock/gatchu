@@ -30,6 +30,14 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def posted_questions_count_on(month)
+    questions.where(created_at: month.all_month).count
+  end
+
+  def answered_questions_count_on(month)
+    answers.where(created_at: month.all_month).map(&:question).uniq.count
+  end
+
   private
 
   # is_deletedがfalse=>trueに切り替わった際に実行
