@@ -22,17 +22,12 @@
               <!--回答者情報-->
               <div class="row m-3">
                 <div class="col-8">
-                  <!--回答者のプロフィール画像を3つまで取り出す-->
-                  <% count = 0 %>
-                  <% question.answers.each do |answer| %>
-                    <% if count < 3 %>
-                      <%= image_tag answer.user.get_profile_image(35, 35), class: "rounded-circle" %>
-                      <% count += 1 %>
-                    <% else %>
-                      <% break %>
-                    <% end %>
+                  <!-- 一意に回答者のプロフィール画像を3つまで取り出す -->
+                  <% unique_users = question.answers.map(&:user).uniq %>
+                  <% unique_users.first(3).each do |user| %>
+                    <%= image_tag user.get_profile_image(35, 35), class: "rounded-circle" %>
                   <% end %>
-                  <b class="ml-1"><%= question.answers.count %>人が回答済み</b>
+                  <b class="ml-1"><%= unique_users.count %>人が回答済み</b>
                 </div>
                 <!--ブックマーク・閲覧数-->
                 <div class="col-4 pl-5 mt-2">
