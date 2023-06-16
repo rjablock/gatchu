@@ -3,8 +3,13 @@
   <!--今日の中国語-->
   <div class="row">
     <div class="offset-1 col-11">
-      <%= link_to today_words_path do %>
-        <div class="mt-4 mx-auto p-4" style="background-color: white; width: 90%; height: 300px;"></div>
+      <% if @latest_today_word.present? %>
+        <%= link_to today_word_path(@latest_today_word) do %>
+          <div class="mt-4 mx-auto p-4" style="background-color: white; width: 90%; height: 300px;"></div>
+        <% end %>
+      <% else %>
+        <!--有効な単語が存在しない際に表示する画像-->
+        <div class="mt-4 mx-auto p-4" style="background-color: blue; width: 90%; height: 300px;"></div>
       <% end %>
     </div>
   </div>
@@ -134,7 +139,11 @@
     </div>
   </div>
 
-  <p class="mt-1 text-right">※投稿・回答機能のご利用にはログインが必要です。</p>
-
+  <!--未ログイン時に注釈を表示-->
+  <div class="text-right mb-4">
+    <% if !user_signed_in? %>
+      <p class="mt-2">※投稿・回答機能のご利用にはログインが必要です。</p>
+    <% end %>
+  </div>
 
 </div>
