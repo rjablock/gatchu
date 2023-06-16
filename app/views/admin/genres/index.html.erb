@@ -70,36 +70,31 @@
   </div>
 </div>
 
-<!--「ジャンル作成」ボタン押下時に発火-->
+<!--「新しくジャンルを作成する」の選択時にポップアップを表示-->
 <script>
-  // HTMLドキュメントが読み込まれた後に実行される関数
   $(document).ready(function() {
     var newGenreButton = $("#new-genre-button");
     var newGenreForm = $("#new-genre-form");
 
-    // ジャンル作成ボタンがクリックされたとき
     newGenreButton.on("click", function() {
-      event.stopPropagation(); // ここでクリックイベントの伝播を停止しなければ以下の`outsideClick`関数と同時に発火してしまい、想定と異なる挙動を生む
+      event.stopPropagation();
       slideDown(newGenreForm);
     });
 
-    // 引数で指定された要素をスライドダウンさせ、出現させる処理
     function slideDown(element) {
       element.slideDown(300);
-      $(document).on("click", outsideClick); // 表示中は`outsideClick`関数を有効にする
+      $(document).on("click", outsideClick);
     }
 
-    // ポップアップ表示画面外をクリックすることでスライドアップさせる
     function outsideClick(event) {
-      if (!$(event.target).closest(newGenreForm).length) { //「クリックされた要素が内部である場合には数値が返され、それ以外の場合は0となる」の否定形
+      if (!$(event.target).closest(newGenreForm).length) {
         slideUp(newGenreForm);
       }
     }
 
-    //引数で指定された要素をスライドアップさせ、引っ込ませる処理
     function slideUp(element) {
       element.slideUp(300);
-      $(document).off("click", outsideClick); // 非表示中は`outsideClick`関数を無効にする
+      $(document).off("click", outsideClick);
     }
   });
 </script>
@@ -107,7 +102,7 @@
 <!--編集ボタン押下後、フォームが出現し保存ボタンに切り替わる-->
 <script>
   $(document).ready(function() {
-    $(".edit-button").click(function() { //編集ボタンが押された時の処理
+    $(".edit-button").click(function() {
       var row = $(this).closest("tr");
       var nameCell = row.find(".genre-name");
       var editInput = row.find(".genre-edit-input");
@@ -119,13 +114,13 @@
       $(this).hide();
     });
 
-    $(".save-button").click(function() { //保存ボタンが押された時の処理
+    $(".save-button").click(function() {
       var row = $(this).closest("tr");
       var nameCell = row.find(".genre-name");
       var editInput = row.find(".genre-edit-input");
       var editButton = row.find(".edit-button");
 
-      nameCell.text(editInput.val()).show(); //「nameCell」のテキストを「editInput」の値に置き換えて表示
+      nameCell.text(editInput.val()).show();
       editInput.hide();
       $(this).hide();
       editButton.show();

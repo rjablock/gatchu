@@ -39,7 +39,7 @@
               <td><%= f.select :age, User.ages.keys.map { |k| [I18n.t("enums.user.age.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
             </tr>
             <tr>
-              <td class="align-middle font-weight-bold">中国語学習歴</td>
+              <td class="align-middle font-weight-bold">学習歴</td>
               <td><%= f.select :study_background, User.study_backgrounds.keys.map { |k| [I18n.t("enums.user.study_background.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
             </tr>
             <tr>

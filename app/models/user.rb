@@ -13,8 +13,9 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: true, length: { maximum: 24 }
-  validates :email, uniqueness: true
+  validates :name, presence: true, length: { maximum: 12 }
+  validates :introduction, length: { maximum: 100 }
+  validates :email, uniqueness: true, length: { maximum: 318 }
 
   enum gender:           { not_answer: 0, male: 1, female: 2 }
   enum age:              { unselected_age: 0, teen: 10, twenties: 20, thirties: 30, forties: 40, fifties: 50, sixties: 60, upper_seventies: 70 }
@@ -28,6 +29,14 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-profile_image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def posted_questions_count_on(month)
+    questions.where(created_at: month.all_month).count
+  end
+
+  def answered_questions_count_on(month)
+    answers.where(created_at: month.all_month).map(&:question).uniq.count
   end
 
   private

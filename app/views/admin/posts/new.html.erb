@@ -71,68 +71,60 @@
   </div>
 </div>
 
-<!--「新しくジャンルを作成する」の選択時に発火-->
+<!--「新しくジャンルを作成する」の選択時にポップアップを表示-->
 <script>
-  // HTMLドキュメントが読み込まれた後に実行される関数
   $(document).ready(function() {
     var genreSelect = $("#genre-select");
     var newGenreForm = $("#new-genre-form");
     var submitButton = $("#submit-button");
 
-    // ジャンル選択の内容がチェンジされたときに実行する処理
     genreSelect.on("change", function() {
       if (genreSelect.val() === "new") {
         slideDown(newGenreForm);
-        submitButton.prop("disabled", true); // ボタンを無効化する
+        submitButton.prop("disabled", true);
       } else {
         slideUp(newGenreForm);
-        submitButton.prop("disabled", false); // ボタンを有効化する
+        submitButton.prop("disabled", false);
       }
     });
 
-    // 引数で指定された要素をスライドダウンさせ、出現させる処理
     function slideDown(element) {
       element.slideDown(300);
-      $(document).on("click", outsideClick); // 表示中は`outsideClick`関数を有効にする
+      $(document).on("click", outsideClick);
     }
 
-    // ポップアップ表示画面外をクリックすることでスライドアップさせる
     function outsideClick(event) {
-      if (!$(event.target).closest(newGenreForm).length) { //「クリックされた要素が内部である場合には数値が返され、それ以外の場合は0となる」の否定形
+      if (!$(event.target).closest(newGenreForm).length) {
         slideUp(newGenreForm);
       }
     }
 
-    //引数で指定された要素をスライドアップさせ、引っ込ませる処理
     function slideUp(element) {
       element.slideUp(300);
-      $(document).off("click", outsideClick); // 非表示中は`outsideClick`関数を無効にする
+      $(document).off("click", outsideClick);
     }
   });
 </script>
 
-<!--画像ファイルが選択された際に発火し、画像のプレビューを表示-->
+<!--画像ファイルが選択された際に画像のプレビューを表示-->
 <script>
   $(document).ready(function() {
     var imagePreview = $("#image-preview");
-    var fileInput = $("#post_image"); //モデル名に基づいて自動で生成されるid
+    var fileInput = $("#post_image");
 
-    // 初期状態では非表示に
     imagePreview.hide();
 
-    // 画像が選択された際に実行される関数
     fileInput.on("change", function(event) {
       var file = event.target.files[0];
 
-      // アップロードした画像をセットし、表示する
       if (file) {
         var reader = new FileReader();
         reader.onload = function(e) {
-          imagePreview.attr("src", e.target.result).show(); // 画像を表示する
+          imagePreview.attr("src", e.target.result).show();
         }
         reader.readAsDataURL(file);
       } else {
-        imagePreview.hide(); // 画像が選択されていない場合は非表示にする
+        imagePreview.hide();
       }
     });
   });
