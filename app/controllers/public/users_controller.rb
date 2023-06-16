@@ -23,9 +23,14 @@ class Public::UsersController < Public::ApplicationController
   end
 
   def confirm
+    @user = User.find(params[:id])
   end
 
   def quit
+    user = current_user
+    user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path, notice: "退会手続きが完了しました。"
   end
 
   private
