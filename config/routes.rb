@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     root to: 'homes#top'
 
-    resources :today_words, only: [:index, :show]
+    resources :today_words, only: [:show]
 
     resources :posts, only: [:index, :show]
 
@@ -30,9 +30,11 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :edit, :update] do
       resources :bookmarks, only: [:index]
+      member do
+        get 'confirm'
+        patch 'quit'
+      end
     end
-    get '/users/:id/confirm' => 'users#confirm'
-    patch '/users/:id/quit' => 'users#quit'
 
   end
 
