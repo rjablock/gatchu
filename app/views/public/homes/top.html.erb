@@ -134,7 +134,11 @@
     </div>
   </div>
 
-  <p class="mt-1 text-right">※投稿・回答機能のご利用にはログインが必要です。</p>
-
+  <!--未ログイン時に注釈を表示-->
+  <div class="text-right mb-4">
+    <% if !user_signed_in? %>
+      <p class="mt-2">※投稿・回答機能のご利用にはログインが必要です。</p>
+    <% end %>
+  </div>
 
 </div>
