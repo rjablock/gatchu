@@ -26,9 +26,14 @@
           <% if user_signed_in? %>
             <!--会員側ログイン時-->
             <div class="menu h4">
-              <p>
-                <%= link_to today_words_path, class: "text-color" do %>
-                  <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+              <p class="text-color">
+                <% if @latest_today_word.present? %>
+                  <%= link_to today_word_path(@latest_today_word), class: "text-color" do %>
+                    <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                  <% end %>
+                <% else %>
+                  <!--有効な単語が存在しない際に表示する文章-->
+                  <i class="fa-solid fa-pencil text-color"></i> Coming Soon...!
                 <% end %>
               </p><hr>
               <p>
@@ -84,9 +89,14 @@
           <% else %>
             <!--未ログイン時-->
             <div class="menu h4">
-              <p>
-                <%= link_to today_words_path, class: "text-color" do %>
-                  <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+              <p class="text-color">
+                <% if @latest_today_word.present? %>
+                  <%= link_to today_word_path(@latest_today_word), class: "text-color" do %>
+                    <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                  <% end %>
+                <% else %>
+                  <!--有効な単語が存在しない際に表示する文章-->
+                  <i class="fa-solid fa-pencil text-color"></i> Coming Soon...!
                 <% end %>
               </p><hr>
               <p>
