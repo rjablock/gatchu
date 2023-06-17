@@ -43,8 +43,12 @@ class Public::QuestionsController < Public::ApplicationController
   end
 
   def search
-    @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
-    @search_word = params[:q][:title_cont]
+      @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
+      @search_word = params[:q][:title_cont]
+
+    if @search_word.blank? || !@questions.present?
+      @questions = Question.all.order(id: "DESC").limit(5)
+    end
   end
 
   private
