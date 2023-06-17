@@ -9,7 +9,7 @@ class Public::QuestionsController < Public::ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to question_path(@question)
+      redirect_to question_path(@question), notice: "質問の投稿に成功しました。"
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Public::QuestionsController < Public::ApplicationController
   def index
     if params[:order] == ORDER_BY_POPULAR
       @order = ORDER_BY_POPULAR
-      @questions = Question.all.page(params[:page]).order(views_count: "DESC").per(10)
+      @questions = Question.all.left_joins(:bookmarks).group('questions.id').page(params[:page]).order('views_count DESC', 'COUNT(bookmarks.id) DESC').per(10)
     else
       @order = ORDER_BY_NEW
       @questions = Question.all.page(params[:page]).order(id: "DESC").per(10)
@@ -43,7 +43,12 @@ class Public::QuestionsController < Public::ApplicationController
   end
 
   def search
-    @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
+      @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
+      @search_word = params[:q][:title_cont]
+
+    if @search_word.blank? || !@questions.present?
+      @questions = Question.all.order(id: "DESC").limit(5)
+    end
   end
 
   private

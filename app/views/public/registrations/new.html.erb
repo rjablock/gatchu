@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="offset-3 col-9">
-      
+
       <!--エラーメッセージ-->
       <%= render "layouts/errors", obj: @user %>
 
@@ -18,7 +18,7 @@
             <%= f.text_field :name, placeholder: "ユーザー名", class: "form-control mx-auto", style: "width: 85%;" %>
           </div>
           <div class="my-4">
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（10文字以上）", class: "form-control mx-auto", style: "width: 85%;" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（8文字以上）", class: "form-control mx-auto", style: "width: 85%;" %>
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（確認用）", class: "form-control mx-auto mt-2", style: "width: 85%;" %>
           </div>
           <div class="text-center">

@@ -13,8 +13,8 @@
             <div class="delete-underline mt-3 ml-2">
               <%= link_to user_path(@question.user) do %>
                 <%= image_tag @question.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+                <span class="text-dark"><%= @question.user.name %></span>
               <% end %>
-              <%= @question.user.name %>
             </div>
           </div>
           <!--ブックマーク・閲覧数-->
@@ -51,21 +51,20 @@
         <div class="py-3 pr-4 text-right">
           <%= @question.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
         </div>
-      </div>
-
-      <!--回答送信フォーム-->
-      <div class="content-box mt-4">
-        <%= form_with model: [@question, @answer], url: question_answers_path(@question) do |f| %>
-          <div class="row">
-            <div class="col-10">
-              <%= f.text_area :body, placeholder: "回答を入力してください", class: "form-control", style: "height: 120px;" %>
-              <div id="body-count" class="mt-1 text-right text-muted">0 / 300文字</div>
+        <!--回答送信フォーム-->
+        <div class="mt-4">
+          <%= form_with model: [@question, @answer], url: question_answers_path(@question) do |f| %>
+            <div class="row">
+              <div class="col-10">
+                <%= f.text_area :body, placeholder: "回答を入力してください", class: "form-control", style: "height: 100px;" %>
+                <div id="body-count" class="mt-1 text-right text-muted">0 / 300文字</div>
+              </div>
+              <div class="col-2">
+                <%= f.submit "回答する", class: "btn btn-success", style: "height: 100px;" %>
+              </div>
             </div>
-            <div class="col-2">
-              <%= f.submit "回答する", class: "btn btn-success", style: "height: 120px;" %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
 
       <!--回答一覧-->
@@ -78,8 +77,8 @@
             <div class="delete-underline mt-3 ml-3">
               <%= link_to user_path(answer.user) do %>
                 <%= image_tag answer.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+                <span class="text-dark"><%= answer.user.name %></span>
               <% end %>
-              <%= answer.user.name %>
             </div>
             <!--回答文-->
             <div class="h5 px-5 pt-3">
@@ -114,15 +113,18 @@
       </div>
 
       <!--ページ送り-->
-      <div class="row my-4 pl-4 mx-auto">
-        <div class="col-3">
+      <div class="row my-4 mx-auto">
+        <div class="col-3 text-left">
           <% if @previous_question %>
             <%= link_to question_path(@previous_question), class: "btn btn-primary" do %>
               <i class="fa-solid fa-left-long"></i> 前の質問へ
             <% end %>
           <% end %>
         </div>
-        <div class="offset-6 col-3">
+        <div class="col-6 text-center">
+          <%= link_to "TOPへもどる", root_path, class: "btn btn-secondary" %>
+        </div>
+        <div class="col-3 text-right">
           <% if @next_question %>
             <%= link_to question_path(@next_question), class: "btn btn-primary" do %>
               次の質問へ <i class="fa-solid fa-right-long"></i>
