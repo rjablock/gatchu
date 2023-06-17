@@ -1,10 +1,9 @@
 class Public::BookmarksController < Public::ApplicationController
 
   def create
-    question = Question.find(params[:question_id])
-    bookmark = question.bookmarks.new(user_id: current_user.id)
-    bookmark.save
-    redirect_to request.referer, notice: "ブックマークを追加しました。"
+    @question = Question.find(params[:question_id])
+    @bookmark = @question.bookmarks.new(user_id: current_user.id)
+    @bookmark.save
   end
 
   def index
@@ -13,10 +12,9 @@ class Public::BookmarksController < Public::ApplicationController
   end
 
   def destroy
-    question = Question.find(params[:question_id])
-    bookmark = question.bookmarks.find_by(user_id: current_user.id)
-    bookmark.destroy
-    redirect_to request.referer, alert: "ブックマークを削除しました。"
+    @question = Question.find(params[:question_id])
+    @bookmark = @question.bookmarks.find_by(user_id: current_user.id)
+    @bookmark.destroy
   end
 
 end
