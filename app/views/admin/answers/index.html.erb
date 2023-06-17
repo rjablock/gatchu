@@ -2,7 +2,7 @@
   <div class="row">
     <div class="offset-1 col-11">
 
-      <h5 class="h4 ml-5 pt-4 font-weight-bold">質問ID:<%= @question.id %>の回答管理</h5>
+      <h5 class="h4 ml-5 pt-4 font-weight-bold">質問ID:<%= @question.id %>「<%= truncate(@question.title, length: 14, omission: '...') %>」の回答管理</h5>
 
       <div class="admin-box mx-auto px-4">
         <!--各列カラム名-->
