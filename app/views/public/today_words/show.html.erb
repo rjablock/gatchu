@@ -38,15 +38,18 @@
 
       </div>
 
-      <div class="row my-4 pl-4 mx-auto">
-        <div class="col-3">
+      <div class="row my-4 mx-auto">
+        <div class="col-3 text-left">
           <% if @previous_word %>
             <%= link_to today_word_path(@previous_word), class: "btn btn-primary" do %>
               <i class="fa-solid fa-left-long"></i> 前の単語へ
             <% end %>
           <% end %>
         </div>
-        <div class="offset-6 col-3">
+        <div class="col-6 text-center">
+          <%= link_to "TOPへもどる", root_path, class: "btn btn-secondary" %>
+        </div>
+        <div class="col-3 text-right">
           <% if @next_word %>
             <%= link_to today_word_path(@next_word), class: "btn btn-primary" do %>
               次の単語へ <i class="fa-solid fa-right-long"></i>
