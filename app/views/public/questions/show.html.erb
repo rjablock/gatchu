@@ -19,7 +19,7 @@
           </div>
           <!--ブックマーク・閲覧数-->
           <div class="delete-underline offset-1 col-3 mt-4">
-            <%= render 'public/questions/bookmark_btn', question: @question %>
+            <%= render 'public/bookmarks/bookmark_btn', question: @question %>
             <i class="fas fa-eye ml-4 pt-1"  style="font-size: 20px;"></i>
             <span class="ml-1" style="font-size: 16px;"><%= @question.views_count %></span>
           </div>
