@@ -44,6 +44,7 @@ class Public::QuestionsController < Public::ApplicationController
 
   def search
     @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
+    @search_word = params[:q][:title_cont]
   end
 
   private
