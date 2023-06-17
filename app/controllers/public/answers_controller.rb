@@ -6,7 +6,7 @@ class Public::AnswersController < Public::ApplicationController
     answer.user_id = current_user.id
     answer.question_id = question.id
     if answer.save
-      redirect_to question_path(question)
+      redirect_to question_path(question), notice: "回答の投稿に成功しました。"
     else
       @question = question
       @answer = answer

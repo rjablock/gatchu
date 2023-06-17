@@ -9,7 +9,7 @@ class Public::QuestionsController < Public::ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to question_path(@question)
+      redirect_to question_path(@question), notice: "質問の投稿に成功しました。"
     else
       render :new
     end
