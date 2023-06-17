@@ -21,7 +21,7 @@ class Public::QuestionsController < Public::ApplicationController
   def index
     if params[:order] == ORDER_BY_POPULAR
       @order = ORDER_BY_POPULAR
-      @questions = Question.all.page(params[:page]).order(views_count: "DESC").per(10)
+      @questions = Question.all.left_joins(:bookmarks).group('questions.id').page(params[:page]).order('views_count DESC', 'COUNT(bookmarks.id) DESC').per(10)
     else
       @order = ORDER_BY_NEW
       @questions = Question.all.page(params[:page]).order(id: "DESC").per(10)
