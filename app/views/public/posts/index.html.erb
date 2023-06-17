@@ -7,8 +7,8 @@
       <div class="content-box mt-4">
         <!--1つの行に2記事を表示する-->
         <div class="row mx-auto w-100">
+          <!--１記事-->
           <% @posts.each do |post| %>
-            <!--１記事-->
             <div class="col-6">
               <%= link_to post_path(post.id) do %>
                 <div class="index-news border my-3">
@@ -28,7 +28,6 @@
                 </div>
               <% end %>
             </div>
-
           <% end %>
         </div>
 
