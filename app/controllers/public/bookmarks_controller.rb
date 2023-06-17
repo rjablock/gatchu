@@ -8,7 +8,8 @@ class Public::BookmarksController < Public::ApplicationController
   end
 
   def index
-    @bookmarks = current_user.bookmarks.page(params[:page]).order(id: "DESC").per(10)
+    @bookmarked_questions = current_user.bookmarks.pluck(:question_id)
+    @questions = Question.where(id: @bookmarked_questions).page(params[:page]).order(id: "DESC").per(10)
   end
 
   def destroy
