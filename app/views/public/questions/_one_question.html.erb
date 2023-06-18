@@ -11,7 +11,7 @@
         <!-- 一意に回答者のプロフィール画像を3つまで取り出す -->
         <% unique_users = question.answers.map(&:user).uniq %>
         <% unique_users.first(3).each do |user| %>
-          <%= image_tag user.get_profile_image(35, 35), class: "rounded-circle" %>
+          <%= image_tag user.get_profile_image(35, 35), class: "img-fluid rounded-circle" %>
         <% end %>
         <b class="ml-md-1"><%= unique_users.count %>人が回答済み</b>
       </div>

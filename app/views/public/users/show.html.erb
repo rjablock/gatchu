@@ -7,7 +7,7 @@
 
         <div class="row pt-4 px-4">
           <div class="col-3 mr-5" style="height: 150px; width: 150px;">
-            <%= image_tag @user.get_profile_image(150, 150), class: "rounded-circle mr-5", style: "border: 3px solid #066285;" %>
+            <%= image_tag @user.get_profile_image(150, 150), class: "img-fluid rounded-circle mr-5", style: "border: 3px solid #066285;" %>
           </div>
           <div class="col-4 mt-4">
             <h3 class="font-weight-bold"><%= @user.name %></h3>

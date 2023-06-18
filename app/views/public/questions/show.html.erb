@@ -12,7 +12,7 @@
           <div class="col-8">
             <div class="delete-underline mt-3 ml-2">
               <%= link_to user_path(@question.user) do %>
-                <%= image_tag @question.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+                <%= image_tag @question.user.get_profile_image(40, 40), class: "img-fluid rounded-circle mr-1" %>
                 <span class="text-dark"><%= @question.user.name %></span>
               <% end %>
             </div>
@@ -59,7 +59,7 @@
             <!--回答者情報-->
             <div class="delete-underline mt-3 ml-3">
               <%= link_to user_path(answer.user) do %>
-                <%= image_tag answer.user.get_profile_image(40, 40), class: "rounded-circle mr-1" %>
+                <%= image_tag answer.user.get_profile_image(40, 40), class: "img-fluid rounded-circle mr-1" %>
                 <span class="text-dark"><%= answer.user.name %></span>
               <% end %>
             </div>
