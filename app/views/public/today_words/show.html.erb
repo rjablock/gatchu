@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1 col-11">
+    <div class="col-12 offset-md-1 col-md-11">
       <div class="content-box word_card" style="margin-top: 65px">
 
       <!--単語見出し-->
@@ -40,17 +40,17 @@
 
       <!--ページ送り-->
       <div class="row my-4 mx-auto">
-        <div class="col-3 text-left">
+        <div class="col-4 col-md-3 text-left">
           <% if @previous_word %>
             <%= link_to today_word_path(@previous_word), class: "btn btn-primary" do %>
               <i class="fa-solid fa-left-long"></i> 前の単語へ
             <% end %>
           <% end %>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-4 col-md-6 text-center">
           <%= link_to "TOPへもどる", root_path, class: "btn btn-secondary" %>
         </div>
-        <div class="col-3 text-right">
+        <div class="col-4 col-md-3 text-right">
           <% if @next_word %>
             <%= link_to today_word_path(@next_word), class: "btn btn-primary" do %>
               次の単語へ <i class="fa-solid fa-right-long"></i>
