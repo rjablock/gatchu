@@ -1,0 +1,19 @@
+@media screen and (max-width:768px) {
+  .fixed-sidebar {
+    display: none;
+  }
+
+  .navbar {
+    background-color: #fccc4a;
+    transition: top 0.8s ease; // スクロール時ヘッダーの連動速度
+  }
+
+  .nav-up {
+    top: -100px;
+  }
+
+  .nav-down {
+    top: 0;
+  }
+
+}
