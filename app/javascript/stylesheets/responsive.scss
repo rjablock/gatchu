@@ -1,7 +1,4 @@
 @media screen and (max-width:768px) {
-  .fixed-sidebar {
-    display: none;
-  }
 
   .navbar {
     background-color: #fccc4a;
@@ -14,6 +11,16 @@
 
   .nav-down {
     top: 0;
+  }
+
+  .news{
+    border-radius: 10px;
+    width: 32vh;
+    height: 35vh;
+    background-color: white;
+    .news-image{
+      transform: scale(1.25);
+    }
   }
 
 }

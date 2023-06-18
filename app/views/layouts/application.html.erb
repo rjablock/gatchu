@@ -20,7 +20,7 @@
 
         <%= render 'layouts/hamburger', latest_today_word: @latest_today_word %>
 
-        <div class="col-3 fixed-sidebar text-center" style="background-color: #fccc4a; height: 100vh;">
+        <div class="col-md-3 d-none d-md-block fixed-sidebar text-center" style="background-color: #fccc4a; height: 100vh;">
           <p class="border border-dark p-5 mb-5 mt-3" style="font-size: 50px;">
             <%= link_to "LOGO", root_path, class: "text-dark" %>
           </p>
@@ -140,7 +140,7 @@
 
         </div>
 
-        <div class="main col-9">
+        <div class="main col-12 col-md-9 ">
           <!--フラッシュメッセージ-->
           <%= render 'layouts/flash' %>
           <%= yield %>
