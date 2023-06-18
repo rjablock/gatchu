@@ -24,7 +24,7 @@
         <div><%= image_tag @post.get_image(685, 466), class: "img-fluid" %></div>
 
         <!--記事本文-->
-        <div class="my-4 p-3" style="font-size: 18px;">
+        <div class="my-2 my-md-4 p-3" style="font-size: 18px;">
           <%= @post.body %>
         </div>
 
@@ -32,17 +32,17 @@
 
       <!--ページ送り-->
       <div class="row my-4 mx-auto">
-        <div class="col-3 text-left">
+        <div class="col-4 col-md-3 text-left">
           <% if @previous_post %>
             <%= link_to post_path(@previous_post), class: "btn btn-primary" do %>
               <i class="fa-solid fa-left-long"></i> 前の記事へ
             <% end %>
           <% end %>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-4 col-md-6 text-center">
           <%= link_to "TOPへもどる", root_path, class: "btn btn-secondary" %>
         </div>
-        <div class="col-3 text-right">
+        <div class="col-4 col-md-3 text-right">
           <% if @next_post %>
             <%= link_to post_path(@next_post), class: "btn btn-primary" do %>
               次の記事へ <i class="fa-solid fa-right-long"></i>
