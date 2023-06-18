@@ -2,11 +2,11 @@
 <div class="text-right mt-4 pr-4", style="font-size: 20px;">
   <% if current_user %>
     <% if answer.evaluated_by?(current_user) %>
-      <%= link_to question_answer_evaluations_path(answer, answer_id: answer.id), method: :delete do %>
+      <%= link_to question_answer_evaluations_path(answer, answer_id: answer.id), method: :delete, remote: true do %>
         <i class="fas fa-fire-alt fa-lg text-danger"></i>
       <% end %>
     <% else %>
-      <%= link_to question_answer_evaluations_path(answer, answer_id: answer.id), method: :post do %>
+      <%= link_to question_answer_evaluations_path(answer, answer_id: answer.id), method: :post, remote: true do %>
         <i class="fas fa-bomb fa-lg text-dark"></i>
       <% end %>
     <% end %>
