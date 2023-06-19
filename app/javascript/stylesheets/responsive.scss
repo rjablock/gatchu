@@ -13,23 +13,6 @@
     top: 0;
   }
 
-  .news{
-    border-radius: 10px;
-    width: 32vh;
-    height: 35vh;
-    background-color: white;
-    .news-image{
-      transform: scale(1.25);
-    }
-  }
-
-  .index-news{
-    height: 40vh;
-    .index-news-image{
-      transform: scale(0.9);
-    }
-  }
-
   .devise-box{
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
