@@ -1,5 +1,5 @@
 <div class="position-relative">
-  <div id="flash" class="col-9 mx-auto position-absolute" style="z-index: 99999;">
+  <div id="flash" class="col-md-9 mx-auto position-absolute" style="z-index: 99999;">
     <% flash.each do |message_type, message| %>
       <% if flash[:notice] %>
         <div class="alert alert-success text-center">
@@ -15,5 +15,5 @@
 </div>
 
 <script>
-  setTimeout("$('#flash').fadeOut()", 5000);
+  setTimeout("$('#flash').fadeOut()", 3000);
 </script>

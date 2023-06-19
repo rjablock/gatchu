@@ -1,0 +1,60 @@
+@media screen and (max-width:768px) {
+
+  .navbar {
+    background-color: #fccc4a;
+    transition: top 0.8s ease; // スクロール時ヘッダーの連動速度
+  }
+
+  .nav-up {
+    top: -100px;
+  }
+
+  .nav-down {
+    top: 0;
+  }
+
+  .news{
+    border-radius: 10px;
+    width: 32vh;
+    height: 35vh;
+    background-color: white;
+    .news-image{
+      transform: scale(1.25);
+    }
+  }
+
+  .index-news{
+    height: 40vh;
+    .index-news-image{
+      transform: scale(0.9);
+    }
+  }
+
+  .devise-box{
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 180px;
+  }
+
+  .word_card{
+    .word-term{
+      width: 10vh;
+    }
+    .description{
+    border-radius: 10px;
+    width: 95%;
+    background-color: white;
+    }
+  }
+
+  .responsive-btn {
+    height: 50px !important;
+  }
+
+  .responsive-text {
+    font-size: 16px !important;
+  }
+
+}
