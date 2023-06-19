@@ -29,7 +29,7 @@
           <%= @question.title %><hr style="width: 90%; border: none; height: 3px; background-color: #066285; border-radius: 10px;">
         </div>
         <div class="h5 p-1 p-md-4">
-          <%= @question.body %>
+          <%= simple_format(@question.body) %>
         </div>
         <div class="mt-5 mt-md-0 py-3 pr-1 pr-md-4 text-right">
           <%= @question.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
@@ -65,7 +65,7 @@
             </div>
             <!--回答文-->
             <div class="h5 px-3 px-md-5 pt-3 responsive-text">
-              <%= answer.body %>
+              <%= simple_format(answer.body) %>
             </div>
             <span class="evaluate-btn"><%= render 'public/evaluations/evaluate_btn', answer: answer %></span>
             <div class="pt-2 pb-3 pr-4 text-right" style="font-size: 14px;">
