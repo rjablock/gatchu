@@ -1,6 +1,6 @@
 <div class="container my-5 my-md-0">
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-11">
+    <div class="offset-md-1 col-md-11">
 
       <h3 class="pt-5 ml-5 font-weight-bold">ニュース一覧</h3>
 
@@ -9,7 +9,7 @@
         <div class="row mx-auto w-100">
           <!--１記事-->
           <% @posts.each do |post| %>
-            <div class="col-12 col-md-6">
+            <div class="col-md-6">
               <%= link_to post_path(post.id) do %>
                 <div class="index-news border my-3">
                   <div class="index-news-image my-1 my-md-3 ml-1 ml-md-3">

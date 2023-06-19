@@ -2,7 +2,7 @@
 
   <!--今日の中国語-->
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-11 delete-underline">
+    <div class="offset-md-1 col-md-11 delete-underline">
       <% if @latest_today_word.present? %>
         <%= link_to today_word_path(@latest_today_word) do %>
           <div class="mt-5 p-5 p-md-4 mx-auto text-center" style="background-image: url(<%= asset_path 'kyochu1.jpg' %>); background-size: cover; width: 100%; height: 360px;">
@@ -20,11 +20,11 @@
   <!--ニュース表示枠-->
   <div class="row">
 
-    <div class="col-12 col-md-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
       <div class="content-box mt-4 mt-md-4 mx-auto pl-md-3">
 
         <div class="row mt-md-3">
-          <span class="col-12 col-md-6 h3 ml-4 ml-md-5 font-weight-bold">新着ニュース</span>
+          <span class="col-md-6 h3 ml-4 ml-md-5 font-weight-bold">新着ニュース</span>
         </div>
 
         <!--1つの行に2記事を表示する-->
@@ -80,11 +80,11 @@
 
   <!--新着質問板-->
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-11">
+    <div class="offset-md-1 col-md-11">
       <div class="content-box mt-4 mt-md-4 mx-auto">
 
         <div class="row mt-md-3">
-          <span class="col-12 col-md-3 h3 ml-4 ml-md-5 font-weight-bold">新着質問板</span>
+          <span class="col-md-3 h3 ml-4 ml-md-5 font-weight-bold">新着質問板</span>
         </div>
 
         <%= render 'public/questions/one_question', questions: @questions %>
