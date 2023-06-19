@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1 col-11">
+    <div class="offset-md-1 col-md-11">
 
       <!--ユーザー情報-->
       <div class="content-box", style="margin: 100px 0;">
 
-        <div class="row pt-4 px-4">
-          <div class="col-3 mr-5" style="height: 150px; width: 150px;">
+        <div class="row pt-md-4 px-md-4">
+          <div class="col-5 col-md-3 mr-md-5" style="height: 150px; width: 150px;">
             <%= image_tag @user.get_profile_image(150, 150), class: "img-fluid rounded-circle mr-5", style: "border: 3px solid #066285;" %>
           </div>
-          <div class="col-4 mt-4">
+          <div class="col-7 col-md-4 mt-4">
             <h3 class="font-weight-bold"><%= @user.name %></h3>
             <div class="mt-3 pl-1"><i class="fas fa-fire-alt fa-lg text-danger"></i> <%= @user.answer_rank_i18n %>ランク</div>
           </div>
-          <div class="col-4 mt-3">
+          <div class="col-md-4 mt-md-3">
             <% if @user == current_user %>
-              <%= link_to edit_user_path(@user), class: "btn btn-primary" do %>
+              <%= link_to edit_user_path(@user), class: "btn btn-primary w-100" do %>
                 <i class="fa-regular fa-user"></i> プロフィール編集
               <% end %>
-              <%= link_to user_bookmarks_path(@user), class: "mt-3 btn btn-outline-success" do %>
+              <%= link_to user_bookmarks_path(@user), class: "mt-3 btn btn-outline-success w-100" do %>
                 <i class="far fa-bookmark"></i> ブックマーク一覧
               <% end %>
             <% end %>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="row mt-4">
-          <table class="offset-1 col-4 table table-borderless">
+          <table class="offset-1 col-6 offset-md-1 col-md-4 table table-borderless">
             <tr>
               <td class="align-middle font-weight-bold">性別：</td>
               <td><%= @user.gender_i18n %></td>
@@ -44,15 +44,15 @@
               <td><%= @user.living_area_i18n %></td>
             </tr>
           </table>
-          <div class="offset-1 col-5 mt-2">
+          <div class="offset-1 col-11 offset-md-1 col-md-5 mt-md-2">
             <span class="font-weight-bold">自己紹介：</span><br>
             <span><%= @user.introduction %></span>
           </div>
         </div>
 
         <!--投稿した/回答をつけた質問一覧-->
-        <div class="row mt-3 mx-2">
-          <div class="col-6">
+        <div class="row mt-5 mt-md-3 mx-1 mx-md-2">
+          <div class="col-md-6">
             <span class="ml-3 font-weight-bold">投稿した質問</span><br>
             <div class="container mt-2 border border-success" style="height: 150px; overflow: auto;">
               <% @posted_questions.each do |question| %>
@@ -62,7 +62,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6 mt-4 mt-md-0">
             <span class="ml-3 font-weight-bold">回答をつけた質問</span><br>
             <div class="container mt-2 border border-success" style="height: 150px; overflow: auto;">
               <% @answered_questions.each do |question| %>
@@ -75,8 +75,8 @@
         </div>
 
         <!--回答数グラフ-->
-        <div class="row mt-5">
-          <div class="col-11 mx-auto">
+        <div class="row mt-4 mt-md-5">
+          <div class="col-md-11 mx-auto">
             <canvas id="myLineChart"></canvas>
             <script>
               $(document).on('turbolinks:load', function() {
