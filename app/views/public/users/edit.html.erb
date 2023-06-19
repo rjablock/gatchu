@@ -1,67 +1,75 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1 col-11">
+    <div class="offset-md-1 col-md-11">
 
       <!--エラーメッセージ-->
       <%= render 'layouts/errors', obj: @user %>
 
       <div class="content-box", style="margin: 100px 0;">
 
-        <h5 class="h4 ml-5 pt-4 font-weight-bold">プロフィール編集</h5>
+        <h5 class="h4 ml-3 ml-md-5 pt-4 font-weight-bold">プロフィール編集</h5>
 
-        <div class="mt-4 px-3 form-group">
+        <div class="mt-4 px-2 px-md-3 form-group">
           <%= form_with model: [:public, @user], url: user_path do |f| %>
             <!--プロフィール編集フォーム-->
-            <table class="table table-borderless">
-              <tr>
-                <td class="align-middle font-weight-bold">ユーザー名</td>
-                <td><%= f.text_field :name, placeholder: "ユーザー名を入力してください", class: "form-control col-8" %></td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">プロフィール画像</td>
-                <td>
-                  <%= f.file_field :profile_image, accept: "image/png, image/jpeg" %><br>
-                  <!--プレビュー表示-->
-                  <img class="mt-2" id="image-preview" alt="プレビュー" style="max-width: 150px; border: solid thin lightgray; border-radius: 5px;">
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">自己紹介</td>
-                <td>
-                  <%= f.text_area :introduction, placeholder: "自己紹介を入力してください", class: "form-control", style: "height: 120px;" %>
-                  <div id="introduction-count" class="mt-1 text-right text-muted" style="font-size: 14px;">0 / 100文字</div>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">性別</td>
-                <td>
-                  <%= f.radio_button :gender, "not_answer" %>
-                  <%= label_tag :gender_not_answer, "回答しない" %>
-                  <%= f.radio_button :gender, "male", class: "ml-3" %>
-                  <%= label_tag :gender_male, "男性" %>
-                  <%= f.radio_button :gender, "female", class: "ml-3" %>
-                  <%= label_tag :gender_female, "女性" %>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">年齢</td>
-                <td><%= f.select :age, User.ages.keys.map { |k| [I18n.t("enums.user.age.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">学習歴</td>
-                <td><%= f.select :study_background, User.study_backgrounds.keys.map { |k| [I18n.t("enums.user.study_background.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
-              </tr>
-              <tr>
-                <td class="align-middle font-weight-bold">居住地</td>
-                <td><%= f.select :living_area, User.living_areas.keys.map { |k| [I18n.t("enums.user.living_area.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6" } %></td>
-              </tr>
-              <tr>
-                <td class="pt-4 font-weight-bold">メールアドレス</td>
-                <td><%= f.text_field :email, placeholder: "メールアドレス", class: "form-control col-6" %></td>
-              </tr>
-            </table>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-1 font-weight-bold">ユーザー名</div>
+              <div class="col-md-9">
+                <%= f.text_field :name, placeholder: "ユーザー名を入力してください", class: "form-control", style: "width: 70%;" %>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-1 font-weight-bold">プロフィール画像</div>
+              <div class="col-md-9">
+                <%= f.file_field :profile_image, accept: "image/png, image/jpeg" %><br>
+                <!--プレビュー表示-->
+                <img class="mt-2" id="image-preview" alt="プレビュー" style="max-width: 150px; border: solid thin lightgray; border-radius: 5px;">
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-1 font-weight-bold">自己紹介</div>
+              <div class="col-md-9">
+                <%= f.text_area :introduction, placeholder: "自己紹介を入力してください", class: "form-control", style: "height: 120px;" %>
+                <div id="introduction-count" class="mt-1 text-right text-muted" style="font-size: 14px;">0 / 100文字</div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3 font-weight-bold">性別</div>
+              <div class="col-md-9">
+                <%= f.radio_button :gender, "not_answer" %>
+                <%= label_tag :gender_not_answer, "回答しない" %>
+                <%= f.radio_button :gender, "male", class: "ml-3" %>
+                <%= label_tag :gender_male, "男性" %>
+                <%= f.radio_button :gender, "female", class: "ml-3" %>
+                <%= label_tag :gender_female, "女性" %>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-2 font-weight-bold">年齢</div>
+              <div class="col-md-9">
+                <%= f.select :age, User.ages.keys.map { |k| [I18n.t("enums.user.age.#{k}"), k] }, { include_blank: false }, { class: "form-control", style: "width: 70%;" } %>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-2 font-weight-bold">学習歴</div>
+              <div class="col-md-9">
+                <%= f.select :study_background, User.study_backgrounds.keys.map { |k| [I18n.t("enums.user.study_background.#{k}"), k] }, { include_blank: false }, { class: "form-control", style: "width: 70%;" } %>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-2 font-weight-bold">居住地</div>
+              <div class="col-md-9">
+                <%= f.select :living_area, User.living_areas.keys.map { |k| [I18n.t("enums.user.living_area.#{k}"), k] }, { include_blank: false }, { class: "form-control", style: "width: 70%;"} %>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3 pt-md-2 font-weight-bold">メールアドレス</div>
+              <div class="col-md-9">
+                <%= f.text_field :email, placeholder: "メールアドレス", class: "form-control", style: "width: 70%;"  %>
+              </div>
+            </div>
             <!--変更を保存ボタン-->
-            <div class="text-center">
+            <div class="text-center mt-4 mt-md-5">
               <%= f.submit "変更内容を保存", class: "mt-2 btn btn-success btn-lg" %>
             </div>
             <!--退会するボタン-->
