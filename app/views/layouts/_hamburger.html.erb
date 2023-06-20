@@ -2,7 +2,9 @@
   <button class="navbar-toggler position-absolute" style="right:2vh;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <%= link_to "ガッチュウ!!", root_path, class: "navbar-brand mx-auto" %>
+  <%= link_to root_path do %>
+    <%= image_tag('logo-sp.png', alt: 'Logo', class: 'img-fluid navbar-brand mx-auto', style: 'width: 42%') %>
+  <% end %>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav pt-5">
 

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     passwords: 'public/passwords'
   }
 
+  devise_scope :user do
+    get '/users', to: 'public/registrations#index'
+  end
+
   devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
     sessions: 'admin/sessions'
   }
