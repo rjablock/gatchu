@@ -1,0 +1,44 @@
+<div class="container my-5 my-md-0">
+  <div class="row">
+    <div class="offset-md-1 col-md-11">
+
+      <h3 class="pt-5 ml-5 font-weight-bold">ニュース一覧</h3>
+
+      <div class="content-box mt-4">
+        <div class="row mx-auto w-100">
+          <!--１記事-->
+          <% @posts.each do |post| %>
+            <div class="col-md-6">
+              <%= link_to post_path(post.id) do %>
+                <div class="news border mx-auto my-2 my-md-3 d-flex flex-column">
+                  <div class="m-3">
+                    <%= image_tag post.get_image(400, 272), class: "img-fluid", style: "border-radius: 10px;" %>
+                  </div>
+                  <div class="mb-1 mb-md-2 mx-3 mx-md-3 border text-center text-dark" style="width: 45%; font-size: 14px;">
+                    <%= post.genre.name %>
+                  </div>
+                  <div class="news-caption ml-4 ml-md-3 mr-2 mr-md-1 flex-grow-1">
+                    <%= truncate(post.title, length: 22, omission: '...') %>
+                  </div>
+                  <div class="mt-5 ml-4 ml-md-3 mb-2 mb-md-3 text-dark" style="font-size: 12px;">
+                    <i class="far fa-clock"></i>
+                    <%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
+      <!--ページネーションの設定-->
+      <div class="row">
+        <div class="mt-4 mx-auto">
+          <%= paginate @posts, theme: 'bootstrap-5' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

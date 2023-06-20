@@ -1,0 +1,111 @@
+<div class="container my-5 my-md-3">
+
+  <!--今日の中国語-->
+  <div class="row pt-4 pt-md-0">
+    <div class="offset-md-1 col-md-11 delete-underline">
+      <% if @latest_today_word.present? %>
+        <%= link_to today_word_path(@latest_today_word) do %>
+          <div class="p-md-5 mx-auto text-center bg-image d-flex align-items-center justify-content-center" style="background-image: url(<%= asset_path 'gatchu-oblivia.jpg' %>);">
+            <div class="text-dark dynamic-text"><%= @latest_today_word.chinese %></div>
+          </div>
+        <% end %>
+      <% else %>
+        <!--有効な単語が存在しない際に表示する画像-->
+        <div class="p-md-5 mx-auto text-center d-flex align-items-center justify-content-center" style="background-color: white;">
+          <div class="text-dark dynamic-text">Coming Soon...!!</div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!--ニュース表示枠-->
+  <div class="row">
+
+    <div class="col-md-8 offset-md-1">
+      <div class="content-box mt-4 mt-md-4 mx-auto pl-md-3">
+
+        <div class="row mt-md-3">
+          <span class="col-md-6 h3 ml-4 ml-md-5 font-weight-bold">新着ニュース</span>
+        </div>
+
+        <div class="row mx-auto w-100">
+          <!--１記事-->
+          <% @posts.each do |post| %>
+            <div class="col-md-6">
+              <%= link_to post_path(post.id) do %>
+                <div class="news border mx-auto my-2 my-md-3 d-flex flex-column">
+                  <div class="m-3 m-md-2">
+                    <%= image_tag post.get_image(400, 272), class: "img-fluid", style: "border-radius: 10px;" %>
+                  </div>
+                  <div class="mb-1 mb-md-2 mx-3 mx-md-3 border text-center text-dark" style="width: 45%; font-size: 14px;">
+                    <%= post.genre.name %>
+                  </div>
+                  <div class="news-caption ml-4 ml-md-3 mr-2 mr-md-1 flex-grow-1">
+                    <%= truncate(post.title, length: 22, omission: '...') %>
+                  </div>
+                  <div class="mt-5 ml-4 ml-md-3 mb-2 mb-md-3 text-dark" style="font-size: 12px;">
+                    <i class="far fa-clock"></i>
+                    <%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+    <!--ニュースのジャンル表示サイドバー-->
+    <div class="col-md-3 d-none d-md-block">
+      <div class="content-box mt-md-4 mx-auto", style="height: 97%">
+        <table class="table table-borderless">
+          <thead>
+            <th>ジャンル一覧</th>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+              <tr><td>
+                <%= link_to posts_path do %>
+                  <%= link_to genre.name, posts_path(genre_id: genre.id) %>
+                <% end %>
+              </td></tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!--新着質問板-->
+  <div class="row">
+    <div class="offset-md-1 col-md-11">
+      <div class="content-box mt-4 mt-md-4 mx-auto">
+
+        <div class="row mt-md-3">
+          <span class="col-md-3 h3 ml-4 ml-md-5 font-weight-bold">新着質問板</span>
+        </div>
+
+        <%= render 'public/questions/one_question', questions: @questions %>
+
+        <div class="delete-underline">
+          <%=link_to questions_path do %>
+            <p class="border border-dark text-center text-dark ml-4 ml-md-5 mt-4 pt-3" style="font-size: 30px; height: 75px; width: 85%">
+              質問板TOPへ
+            </p>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--未ログイン時に注釈を表示-->
+  <div class="text-right mb-5 mb-md-4">
+    <% if !user_signed_in? %>
+      <p class="mt-2 mt-md-2" style="font-size: 14px;">※投稿・回答機能のご利用にはログインが必要です。</p>
+    <% end %>
+  </div>
+
+</div>

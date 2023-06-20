@@ -1,0 +1,22 @@
+.fixed-sidebar {
+  position: sticky;
+  top: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+  hr {
+    margin-bottom: 1.5rem;
+    width: 85%;
+  }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #066285;
+  }
+}
+
+.text-color {
+  color: #066285;
+}

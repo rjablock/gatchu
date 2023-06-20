@@ -1,0 +1,47 @@
+<div class="container my-5 my-md-0">
+  <div class="row">
+    <div class="offset-md-1 col-md-11">
+
+      <% if @search_word.blank? || !@questions.present? %>
+
+        <div class="content-box py-5 text-center", style="margin-top: 100px;">
+          <h5>お探しの質問はまだ投稿されていないようです。</h5>
+          <%= link_to "質問する", new_question_path, class: "btn btn-primary mt-4" %>
+        </div>
+
+        <div class="content-box my-5">
+          <h5 class="ml-5">その他の人は、こんな質問をしています：</h5>
+          <%= render 'one_question', questions: @questions %>
+        </div>
+
+      <% else %>
+
+        <div class="row pt-5 pl-2 pl-md-5">
+          <div class="col-md-8 h3 font-weight-bold">検索結果「<%= @search_word %>」</div>
+          <div class="col-md-4 pt-md-3">
+            検索結果：<%= @questions.count %>件
+          </div>
+        </div>
+
+        <div class="content-box mt-4">
+          <% if @questions.blank? %>
+            <div class="text-center my-4">
+              <h5>検索結果が見つかりません</h5>
+            </div>
+          <% else %>
+            <%= render 'one_question', questions: @questions %>
+          <% end %>
+        </div>
+
+        <!--ページネーションの設定-->
+        <div class="row">
+          <div class="mt-4 mx-auto">
+            <%= paginate @questions, theme: 'bootstrap-5' %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

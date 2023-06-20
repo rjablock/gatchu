@@ -1,0 +1,56 @@
+<div class="container my-4 my-md-0">
+  <div class="row">
+    <div class="offset-md-1 col-md-11">
+      <div class="content-box word_card" style="margin-top: 80px;">
+
+        <!--記事タイトル欄-->
+        <div class="my-3">
+          <%= link_to posts_path(genre_id: @post.genre_id) do %>
+            <div class="my-2 mx-3 border border-dark text-center text-dark" style="width: 19vh; font-size: 18px;">
+              <%= @post.genre.name %>
+            </div>
+          <% end %>
+          <div class="m-3 font-weight-bold" style="font-size: 26px">
+            <%= @post.title %>
+          </div>
+          <div class="m-3 text-dark text-right" style="font-size: 14px;">
+            <i class="far fa-clock"></i>
+            <%= @post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+          </div>
+        </div>
+
+
+        <!--記事見出し画像-->
+        <div><%= image_tag @post.get_image(685, 466), class: "img-fluid" %></div>
+
+        <!--記事本文-->
+        <div class="my-2 my-md-4 p-3" style="font-size: 18px;">
+          <%= @post.body %>
+        </div>
+
+      </div>
+
+      <!--ページ送り-->
+      <div class="row my-4 mx-auto">
+        <div class="col-4 col-md-3 text-left">
+          <% if @previous_post %>
+            <%= link_to post_path(@previous_post), class: "btn btn-primary" do %>
+              <i class="fa-solid fa-left-long"></i> 前の記事へ
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-4 col-md-6 text-center">
+          <%= link_to "TOPへもどる", root_path, class: "btn btn-secondary" %>
+        </div>
+        <div class="col-4 col-md-3 text-right">
+          <% if @next_post %>
+            <%= link_to post_path(@next_post), class: "btn btn-primary" do %>
+              次の記事へ <i class="fa-solid fa-right-long"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

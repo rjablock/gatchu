@@ -1,0 +1,68 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 col-11">
+
+      <div class="row">
+        <div class="col-5">
+           <h5 class="h4 ml-5 pt-4 font-weight-bold">ニュース管理</h5>
+        </div>
+
+        <!--ジャンル管理ボタン-->
+        <div class="offset-1 col-3 mt-3">
+          <%= link_to admin_genres_path, class: "py-2 px-3 btn btn-warning", data: { turbolinks: false } do %>
+            <i class="fa-solid fa-tags fa-lg"></i> ジャンル管理
+          <% end %>
+        </div>
+
+        <!--新規投稿ボタン-->
+        <div class="col-3 mt-3">
+          <%= link_to new_admin_post_path, class: "py-2 px-3 btn btn-primary" do %>
+            <i class="fa-solid fa-folder-plus fa-lg"></i> 新規投稿
+          <% end %>
+        </div>
+      </div>
+
+      <div class="admin-box mx-auto px-4">
+        <!--各列カラム名-->
+        <table class="table table-colored mt-3">
+          <thead>
+            <tr>
+              <th>記事ID</th>
+              <th>タイトル</th>
+              <th>ステータス</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <!--記事一覧-->
+          <% @posts.each do |post| %>
+            <tbody>
+              <tr>
+                <td class="align-middle"><%= post.id %></td>
+                <td class="align-middle"><%= truncate(post.title, length: 21, omission: '...') %></td>
+                <td class="align-middle">
+                  <% if post.is_active %>
+                    <span style="color: green;">有効</span>
+                  <% else %>
+                    <span style="color: gray;" >無効</span>
+                  <% end %>
+                </td>
+                <td><%= link_to "編集", edit_admin_post_path(post), class: "btn btn-success btn-sm" %></td>
+                <td><%= link_to "削除", admin_post_path(post), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "削除しますか？"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+      </div>
+
+      <!--ページネーションの設定-->
+      <div class="row">
+        <div class="mt-2 mx-auto">
+          <%= paginate @posts, theme: 'bootstrap-5' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

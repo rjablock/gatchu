@@ -1,16 +1,154 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gatchu</title>
+    <title>ガッチュウ!! ガチで学べる中国語</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/0fa15b6b25.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+
+        <%= render 'layouts/hamburger', latest_today_word: @latest_today_word %>
+
+        <div class="col-lg-3 d-none d-lg-block fixed-sidebar text-center" style="background-color: #fccc4a; height: 100vh;">
+          <p class="my-4 mx-auto">
+            <%= link_to root_path do %>
+              <%= image_tag('logo.png', alt: 'Logo', class: 'img-fluid') %>
+            <% end %>
+          </p>
+
+          <% if user_signed_in? %>
+            <!--会員側ログイン時-->
+            <div class="menu h4">
+              <p class="text-color">
+                <% if @latest_today_word.present? %>
+                  <%= link_to today_word_path(@latest_today_word), class: "text-color" do %>
+                    <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                  <% end %>
+                <% else %>
+                  <!--有効な単語が存在しない際に表示する文章-->
+                  <i class="fa-solid fa-pencil text-color"></i> Coming Soon...!
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to user_path(current_user), class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> マイページ
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to destroy_user_session_path, class: "text-color", method: :delete do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログアウト
+                <% end %>
+              </p><hr>
+            </div>
+          <% elsif admin_signed_in? %>
+            <!--管理側ログイン時-->
+            <div class="menu h4">
+              <p>
+                <%= link_to admin_today_words_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 中国語管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to admin_users_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 会員管理
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to destroy_admin_session_path, class: "text-color", method: :delete do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログアウト
+                <% end %>
+              </p><hr>
+            </div>
+          <% else %>
+            <!--未ログイン時-->
+            <div class="menu h4">
+              <p class="text-color">
+                <% if @latest_today_word.present? %>
+                  <%= link_to today_word_path(@latest_today_word), class: "text-color" do %>
+                    <i class="fa-solid fa-pencil text-color"></i> 今日の中国語
+                  <% end %>
+                <% else %>
+                  <!--有効な単語が存在しない際に表示する文章-->
+                  <i class="fa-solid fa-pencil text-color"></i> Coming Soon...!
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to posts_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ニュース
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to questions_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 質問板
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to new_user_session_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> ログイン
+                <% end %>
+              </p><hr>
+              <p>
+                <%= link_to new_user_registration_path, class: "text-color" do %>
+                  <i class="fa-solid fa-pencil text-color"></i> 新規登録
+                <% end %>
+              </p><hr>
+            </div>
+          <% end %>
+
+          <div class="menu h1">
+            <%= link_to "https://twitter.com", class: "mx-2" do %>
+              <i class="fa-brands fa-twitter text-color"></i>
+            <% end %>
+            <%= link_to "https://instagram.com/", class: "mx-2" do %>
+              <i class="fa-brands fa-instagram text-color"></i>
+            <% end %>
+            <%= link_to "https://tiktok.com/", class: "mx-2" do %>
+              <i class="fa-brands fa-tiktok text-color"></i>
+            <% end %>
+          </div>
+
+          <p class="text-color">copyright</p>
+
+        </div>
+
+        <div class="main col-lg-9 ">
+          <!--フラッシュメッセージ-->
+          <%= render 'layouts/flash' %>
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>

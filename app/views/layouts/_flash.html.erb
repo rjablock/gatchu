@@ -1,0 +1,19 @@
+<div class="position-relative">
+  <div id="flash" class="col-md-9 mx-auto position-absolute" style="z-index: 99999;">
+    <% flash.each do |message_type, message| %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center">
+          <%= message %>
+        </div>
+      <% else %>
+        <div class="alert alert-danger text-center">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  setTimeout("$('#flash').fadeOut()", 3000);
+</script>

@@ -1,0 +1,65 @@
+ja:
+  enums:
+    user:
+      gender:
+        not_answer: "回答しない"
+        male: "男性"
+        female: "女性"
+      age:
+        unselected_age: "未選択"
+        teen: "10代"
+        twenties: "20代"
+        thirties: "30代"
+        forties: "40代"
+        fifties: "50代"
+        sixties: "60代"
+        upper_seventies: "70代以上"
+      study_background:
+        unselected_study_background: "未選択"
+        lessone: "1年未満"
+        onetothree: "1年以上3年未満"
+        threetofive: "3年以上5年未満"
+        fivemore: "5年以上"
+      living_area:
+        unselected_living_area: "未選択"
+        hokkaido: "北海道"
+        tohoku: "東北"
+        kanto: "関東"
+        chubu: "中部"
+        kinki: "近畿"
+        chugoku_shikoku: "中国/四国"
+        kyushu: "九州"
+        overseas: "海外"
+      answer_rank:
+        normal: "一般"
+        master: "マスター"
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "ユーザー名"
+        introduction: "自己紹介"
+        gender: "性別"
+        age: "年齢層"
+        study_background: "中国語学習歴"
+        living_area: "居住地域"
+        answer_rank: "アンサーランク"
+        is_deleted: "会員ステータス"
+      today_word:
+        japanese: "単語（日本語）"
+        chinese: "単語（中国語）"
+        pinyin: "拼音"
+        example_japanese: "例文（日本語）"
+        example_chinese: "例文（中国語）"
+        description: "一言解説"
+        synonym: "同義語"
+        is_active: "公開ステータス"
+      post:
+        title: "タイトル"
+        body: "本文"
+      question:
+        title: "タイトル"
+        body: "質問文"
+      answer:
+        body: "回答文"

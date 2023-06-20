@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-9">
+
+      <div class="devise-box mx-auto">
+
+        <!--ログインフォーム-->
+        <h5 class="term-title ml-2 pb-3 font-weight-bold">ログイン</h5>
+
+        <%= form_with model: @user, url: user_session_path do |f| %>
+          <div class="my-4">
+            <%= f.email_field :email, placeholder: "Email", class: "form-control mx-auto", style: "width: 85%;" %>
+          </div>
+          <div class="my-4">
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "form-control mx-auto", style: "width: 85%;" %>
+          </div>
+          <!--ログイン情報を記憶する-->
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check ml-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me do %>
+                ログイン情報を記憶する
+              <% end %>
+            </div>
+          <% end %>
+          <div class="text-center">
+            <%= f.submit "ログイン", class: "btn btn-outline-success mt-1 mb-4", style: "width: 85%;" %>
+          </div>
+        <% end %>
+
+        <!--新規会員登録リンク-->
+        <h5 class="ml-5 pb-1" style="font-size: 16px;"><%= link_to "新規登録の方はこちら", new_user_registration_path %></h5>
+        <h5 class="ml-5 pb-4" style="font-size: 16px;"><%= link_to "パスワードを忘れた方はこちら", new_user_password_path %></h5>
+
+      </div>
+
+    </div>
+  </div>
+</div>
