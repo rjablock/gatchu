@@ -21,8 +21,10 @@
         <%= render 'layouts/hamburger', latest_today_word: @latest_today_word %>
 
         <div class="col-lg-3 d-none d-lg-block fixed-sidebar text-center" style="background-color: #fccc4a; height: 100vh;">
-          <p class="border border-dark p-5 mb-5 mt-3" style="font-size: 50px;">
-            <%= link_to "LOGO", root_path, class: "text-dark" %>
+          <p class="my-4  mx-auto">
+            <%= link_to root_path do %>
+              <%= image_tag('logo.png', alt: 'Logo', class: 'img-fluid') %>
+            <% end %>
           </p>
 
           <% if user_signed_in? %>
