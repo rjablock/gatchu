@@ -18,6 +18,17 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 48vh;
+}
+
+.dynamic-text {
+  font-size: 6vw;
+}
+
 .news{
   border-radius: 10px;
   background-color: white;

@@ -1,18 +1,17 @@
-<div class="container my-4 my-md-0">
+<div class="container my-5">
 
   <!--今日の中国語-->
-  <div class="row">
+  <div class="row pt-4 pt-md-0">
     <div class="offset-md-1 col-md-11 delete-underline">
       <% if @latest_today_word.present? %>
         <%= link_to today_word_path(@latest_today_word) do %>
-          <div class="mt-5 p-5 p-md-4 mx-auto text-center" style="background-image: url(<%= asset_path 'kyochu1.jpg' %>); background-size: cover; width: 100%; height: 360px;">
-            <h5 class="mt-1 text-dark">この中国語の意味はなんでしょう？</h5>
-            <h1 class="mt-5 pt-4 pt-md-5 text-light" style="font-size: 84px;"><%= @latest_today_word.chinese %></h1>
+          <div class="p-md-5 mx-auto text-center bg-image d-flex align-items-center justify-content-center" style="background-image: url(<%= asset_path 'gatchu-oblivia.jpg' %>);">
+            <div class="text-dark dynamic-text"><%= @latest_today_word.chinese %></div>
           </div>
         <% end %>
       <% else %>
         <!--有効な単語が存在しない際に表示する画像-->
-        <div class="mt-5 p-5 p-md-4 mx-auto" style="background-color: blue; width: 100%; height: 300px;"></div>
+        <div class="my-5 p-5 p-md-4 mx-auto" style="background-color: blue; width: 100%; height: 100%;"></div>
       <% end %>
     </div>
   </div>
@@ -57,7 +56,7 @@
 
     <!--ニュースのジャンル表示サイドバー-->
     <div class="col-md-3 d-none d-md-block">
-      <div class="content-box mt-md-4 mx-auto", style="height: 93vh">
+      <div class="content-box mt-md-4 mx-auto", style="height: 97%">
         <table class="table table-borderless">
           <thead>
             <th>ジャンル一覧</th>
