@@ -32,7 +32,7 @@
 ## 設計書
 [UI Flow(public)](https://drive.google.com/file/d/1U4r6sw_dXxtOSHrEnanHJXIrqj06WiA0/view?usp=sharing)  
 [UI Flow(admin)](https://drive.google.com/file/d/1QyQlGWdEe8CQjlwCdZ0XOt0WbkesgBE5/view?usp=sharing)  
-[ワイヤーフレーム(public)](https://drive.google.com/file/d/1Ti3tkXrWuCppGEnolmjPclPdPNXw2KA2/view?usp=sharing)  
+[ワイヤーフレーム(public)](https://drive.google.com/file/d/1z_jjdDdeLcVskzWOSXdQ8mkf_vdzrftp/view?usp=sharing)  
 [ワイヤーフレーム(admin)](https://drive.google.com/file/d/1j8rYhqDgFCpw2uNRXZYGaUhYY_D3A3Ri/view?usp=sharing)  
 [ER図](https://drive.google.com/file/d/1fc_0zrJvvU4KpMbKExp91bQ2uahUePlx/view?usp=sharing)  
 [テーブル定義書](https://docs.google.com/spreadsheets/d/1gX2QppEGHLcCl31eEf02WoKvX5EDYJUe9WtqSNGmpzE/edit?usp=sharing)  
