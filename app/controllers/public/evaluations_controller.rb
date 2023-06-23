@@ -1,4 +1,5 @@
 class Public::EvaluationsController < Public::ApplicationController
+  before_action :ensure_guest_user, only: [:create, :destroy]
 
   def create
     @answer = Answer.find(params[:answer_id])
@@ -15,6 +16,14 @@ class Public::EvaluationsController < Public::ApplicationController
     @answer = Answer.find(params[:answer_id])
     @evaluation = @answer.evaluations.find_by(user_id: current_user.id)
     @evaluation.destroy
+  end
+  
+  private
+  
+  def ensure_guest_user
+    if current_user.email == "guest@example.com"
+      redirect_to request.referer, alert: "ゲストユーザーはこの操作を行えません。"
+    end
   end
 
 end

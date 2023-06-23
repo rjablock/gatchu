@@ -1,4 +1,5 @@
 class Public::UsersController < Public::ApplicationController
+  before_action :ensure_guest_user, only: [:edit, :update, :confirm, :quit]
 
   def show
     @user = User.find(params[:id])
@@ -51,6 +52,12 @@ class Public::UsersController < Public::ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction, :gender, :age, :study_background, :living_area, :email)
+  end
+
+  def ensure_guest_user
+    if current_user.email == "guest@example.com"
+      redirect_to user_path(current_user), alert: "ゲストユーザーはこの操作を行えません。"
+    end
   end
 
 end
