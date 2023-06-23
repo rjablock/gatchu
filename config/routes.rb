@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/users', to: 'public/registrations#index'
+    post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
 
   devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
