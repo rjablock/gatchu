@@ -1,4 +1,5 @@
 class Public::AnswersController < Public::ApplicationController
+  before_action :ensure_guest_user, only: [:create]
 
   def create
     question = Question.find(params[:question_id])
@@ -18,6 +19,12 @@ class Public::AnswersController < Public::ApplicationController
 
   def answer_params
     params.require(:answer).permit(:body)
+  end
+  
+  def ensure_guest_user
+    if current_user.email == "guest@example.com"
+      redirect_to request.referer, alert: "ゲストユーザーはこの操作を行えません。"
+    end
   end
 
 end

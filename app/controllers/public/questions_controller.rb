@@ -1,5 +1,6 @@
 class Public::QuestionsController < Public::ApplicationController
   before_action :set_q, only: [:index, :search]
+  before_action :ensure_guest_user, only: [:new, :create]
 
   def new
     @question = Question.new
@@ -45,10 +46,6 @@ class Public::QuestionsController < Public::ApplicationController
   def search
       @questions = @q.result.page(params[:page]).order(id: "DESC").per(10)
       @search_word = params[:q][:title_cont]
-
-    if @search_word.blank? || !@questions.present?
-      @questions = Question.all.order(id: "DESC").limit(5)
-    end
   end
 
   private
@@ -59,6 +56,12 @@ class Public::QuestionsController < Public::ApplicationController
 
   def set_q
     @q = Question.ransack(params[:q])
+  end
+
+  def ensure_guest_user
+    if current_user.email == "guest@example.com"
+      redirect_to questions_path, alert: "ゲストユーザーはこの操作を行えません。"
+    end
   end
 
 end
