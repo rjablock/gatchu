@@ -33,7 +33,7 @@ User.create!(
   User.create!(
     email: "user#{n}@gmail.com",
     password: "0000000000",
-    name: "わんごろう#{n}",
+    name: "わんたろう#{n}",
     introduction:  '犬といったら犬なんです',
     gender: 0,
     age: 20,
@@ -225,20 +225,161 @@ TodayWord.create!(
       example_chinese: "如果《最游记》中有一只狗出场的话，我一定就会去看的。",
       description: "中国には奇妙な犬の神話がたくさんあります。",
       synonym: "小狗"
+    },
+    {
+      japanese: "テーマを深掘りする",
+      chinese: "深挖主题",
+      pinyin: "shēn wā zhǔ tí",
+      example_japanese: "今度あのテーマについて深掘りしてディスカッションしてみようよ。",
+      example_chinese: "xxx",
+      description: "掘る=挖を覚えておけば、ある意味素直",
+      synonym: "xxx"
+    },
+    {
+      japanese: "顧客先にアポを取る",
+      chinese: "和客户约时间",
+      pinyin: "xxx",
+      example_japanese: "またあの大変な顧客とアポを取らないといけないのか、嫌だなあ。",
+      example_chinese: "xxx",
+      description: "アポを取る＝時間を約束する＝约时间で覚えやすい。",
+      synonym: "通宵"
+    },
+    {
+      japanese: "徹夜する",
+      chinese: "熬夜",
+      pinyin: "xxx",
+      example_japanese: "昨日徹夜した。なんなら完徹した。",
+      example_chinese: "xxx",
+      description: "元は明朝時代の小説などから使われていた用語の模様。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "有給休暇を取る",
+      chinese: "用年假/请年假",
+      pinyin: "xxx",
+      example_japanese: "彼女とユニバに行くために有給を取った。",
+      example_chinese: "xxx",
+      description: "中国語で有給は「年」単位の休「暇」で表す。「暇」の漢字が日本語と異なるので注意",
+      synonym: "xxx"
+    },
+    {
+      japanese: "計画を練る",
+      chinese: "制定计划",
+      pinyin: "xxx",
+      example_japanese: "不慮の事態に備えて、来月までの計画を練っておこう。",
+      example_chinese: "xxx",
+      description: "練る、の直接対応するワードはないので、リフレーズが必要。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "サービスを提供する",
+      chinese: "提供服务",
+      pinyin: "xxx",
+      example_japanese: "あのお店はいつも最高のサービスを提供してくれる。",
+      example_chinese: "xxx",
+      description: "職務・任務に服すること→サービス",
+      synonym: "xxx"
+    },
+    {
+      japanese: "モチベがない",
+      chinese: "没有动力",
+      pinyin: "xxx",
+      example_japanese: "今週楽しみにしてたデートがリスケになって、全くモチベがないわ。",
+      example_chinese: "xxx",
+      description: "モチベは動力！がんばれは油を加える（加油）！人間を機械っぽく表現しているのは面白い。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "プロに任せる",
+      chinese: "交给专业人士",
+      pinyin: "xxx",
+      example_japanese: "そんなの僕みたいな素人にお願いするより、プロに任せたほうがいいよ。",
+      example_chinese: "xxx",
+      description: "「人士」は社会的に身分・名声のある人を示す言葉。「〇〇に任せる」=「交给〇〇」もよく使う。「俺に任せとけい！（交给我吧！）」",
+      synonym: "xxx"
+    },
+    {
+      japanese: "プレゼンをする",
+      chinese: "做展示",
+      pinyin: "xxx",
+      example_japanese: "500人規模のセミナーでプレゼンをして、緊張した。",
+      example_chinese: "xxx",
+      description: "プレゼンは展示。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "言葉遣いに気をつける",
+      chinese: "注意语言表达",
+      pinyin: "xxx",
+      example_japanese: "少し言葉にトゲがあるから、もう少し言葉遣いに気をつけたほうが良いと思う。",
+      example_chinese: "xxx",
+      description: "直訳だと、「言語表現に注意する」。少しリフレーズするのが大事。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "リスクを取る",
+      chinese: "承担风险",
+      pinyin: "xxx",
+      example_japanese: "彼、リスクを取って銀行から1億円借りたんだって。",
+      example_chinese: "xxx",
+      description: "承担は「担う」、「背負う」場面でよく使う。風険という表現の由来は、昔の漁業者が嵐を始めとした危険な事態に巻き込まれないよう祈ったことから派生したという説がある。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "問題に対処する",
+      chinese: "处理问题",
+      pinyin: "xxx",
+      example_japanese: "何事も冷静に問題に対処しなきゃね。",
+      example_chinese: "xxx",
+      description: "対処は残念ながらそのまま使えず、「処理」にリフレーズが必要。",
+      synonym: "xxx"
+    },
+    {
+      japanese: "クビになる",
+      chinese: "炒鱿鱼",
+      pinyin: "xxx",
+      example_japanese: "今の会社クビになったら、雇ってくれない？",
+      example_chinese: "xxx",
+      description: "イカを炒めていたら解雇された図をイメージをすると覚えやすい",
+      synonym: "xxx"
+    },
+    {
+      japanese: "面接を受ける",
+      chinese: "面试",
+      pinyin: "xxx",
+      example_japanese: "今日はメイドカフェの面接受けることになってるんだ。",
+      example_chinese: "xxx",
+      description: "「面试」の「面」には既に「受ける」という動詞のニュアンスが含まれる",
+      synonym: "xxx"
+    },
+    {
+      japanese: "転職する",
+      chinese: "跳槽",
+      pinyin: "xxx",
+      example_japanese: "転職したけど、転職前より忙しくなっちゃった。",
+      example_chinese: "xxx",
+      description: "「槽」は昔の飼料を置く場所",
+      synonym: "xxx"
+    },
+    {
+      japanese: "作業の引き継ぎを行う",
+      chinese: "交接工作",
+      pinyin: "xxx",
+      example_japanese: "部署異動になったから、作業の引き継ぎをしてるところだよ。",
+      example_chinese: "xxx",
+      description: "xxx",
+      synonym: "xxx"
+    },
+    {
+      japanese: "納品する",
+      chinese: "进货",
+      pinyin: "xxx",
+      example_japanese: "あの報告書、ちゃんと納品間に合った？",
+      example_chinese: "xxx",
+      description: "xxx",
+      synonym: "xxx"
     }
   ]
 )
-
-10.times do |n|
-  TodayWord.create!(
-    japanese: "犬#{n}",
-    chinese: "狗#{n}",
-    pinyin: "gǒu#{n}",
-    example_japanese: "#{n}もし最遊記に犬が登場するのなら、絶対見るのになあ。",
-    example_chinese: "#{n}如果《最游记》中有一只狗出场的话，我一定就会去看的。",
-    description: "#{n}中国には奇妙な犬の神話がたくさんあります。",
-    synonym: "小狗#{n}"
-  )
-end
 
 puts "--------- all END"
