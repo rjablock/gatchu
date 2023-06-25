@@ -8,20 +8,7 @@
       <h5 class="h4 ml-5 pt-4 font-weight-bold">ニュース編集</h5>
 
       <!--ジャンル新規登録欄（ポップアップ表示）-->
-      <div class="col-10 mx-auto form-group" id="new-genre-form"
-           style="display: none; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.6); padding: 30px; z-index: 99999; border-radius: 10px;">
-        <table class="table table-borderless">
-            <tr>
-              <td>
-                <%= form_with model: @genre, url: admin_genres_path, html: { class: "form-inline" } do |f| %>
-                  <%= f.text_field :name, name: "genre[name]", placeholder: "新規ジャンル名（同名不可・最大6文字）", class: "col-8 form-control mr-2" %>
-                  <%= f.submit "ジャンル作成", class:"col-3 btn btn-primary" %><br>
-                  <p class="text-white pt-3"> ※作成をやめる場合は画面外をクリック</p>
-                <% end %>
-              </td>
-            </tr>
-        </table>
-      </div>
+      <%= render 'admin/genres/genre_popup', genre: @genre %>
 
       <div class="mt-4 form-group">
         <%= form_with model: [:admin, @post], url: admin_post_path do |f| %>

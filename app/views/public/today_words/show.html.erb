@@ -12,12 +12,12 @@
         <!--単語詳細-->
         <table class="table table-borderless">
           <tr>
-            <td class="word-term h5 border text-center">意味</td>
+            <td class="word-term h5 border border-dark text-center">意味</td>
             <td class="h5 pl-4"><%= @today_word.japanese %></td>
           </tr>
           <td><!--空行--></td>
           <tr>
-            <td rowspan="2" class="word-term h5 border text-center align-middle">用法</td>
+            <td rowspan="2" class="word-term h5 border border-dark text-center align-middle">用法</td>
             <td class="h5 pl-4"><%= @today_word.example_chinese %></td>
           </tr>
           <tr>
@@ -25,7 +25,7 @@
           </tr>
           <td><!--空行--></td>
           <tr>
-            <td class="word-term h5 border text-center">同義語</td>
+            <td class="word-term h5 border border-dark text-center">同義語</td>
             <td class="h5 pl-4"><%= @today_word.synonym %></td>
           </tr>
         </table>
