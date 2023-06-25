@@ -6,7 +6,7 @@
       <% if @latest_today_word.present? %>
         <%= link_to today_word_path(@latest_today_word) do %>
           <div class="p-md-5 mx-auto text-center bg-image d-flex align-items-center justify-content-center" style="background-image: url(<%= asset_path 'gatchu-oblivia.jpg' %>);">
-            <div class="text-dark dynamic-text"><%= @latest_today_word.chinese %></div>
+            <div class="text-dark dynamic-text chinese-font"><%= @latest_today_word.chinese %></div>
           </div>
         <% end %>
       <% else %>
