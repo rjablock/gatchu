@@ -247,7 +247,7 @@ TodayWord.create!(
     {
       japanese: "徹夜する",
       chinese: "熬夜",
-      pinyin: "xxx",
+      pinyin: "áo yè",
       example_japanese: "昨日徹夜した。なんなら完徹した。",
       example_chinese: "xxx",
       description: "元は明朝時代の小説などから使われていた用語の模様。",
@@ -256,7 +256,7 @@ TodayWord.create!(
     {
       japanese: "有給休暇を取る",
       chinese: "用年假/请年假",
-      pinyin: "xxx",
+      pinyin: "yòng nián jià/qǐng nián jià",
       example_japanese: "彼女とユニバに行くために有給を取った。",
       example_chinese: "xxx",
       description: "中国語で有給は「年」単位の休「暇」で表す。「暇」の漢字が日本語と異なるので注意",
@@ -265,7 +265,7 @@ TodayWord.create!(
     {
       japanese: "計画を練る",
       chinese: "制定计划",
-      pinyin: "xxx",
+      pinyin: "zhì dìng jì huà",
       example_japanese: "不慮の事態に備えて、来月までの計画を練っておこう。",
       example_chinese: "xxx",
       description: "練る、の直接対応するワードはないので、リフレーズが必要。",
@@ -274,7 +274,7 @@ TodayWord.create!(
     {
       japanese: "サービスを提供する",
       chinese: "提供服务",
-      pinyin: "xxx",
+      pinyin: "tí gōng fú wù",
       example_japanese: "あのお店はいつも最高のサービスを提供してくれる。",
       example_chinese: "xxx",
       description: "職務・任務に服すること→サービス",
@@ -283,7 +283,7 @@ TodayWord.create!(
     {
       japanese: "モチベがない",
       chinese: "没有动力",
-      pinyin: "xxx",
+      pinyin: "méi yǒu dòng lì",
       example_japanese: "今週楽しみにしてたデートがリスケになって、全くモチベがないわ。",
       example_chinese: "xxx",
       description: "モチベは動力！がんばれは油を加える（加油）！人間を機械っぽく表現しているのは面白い。",
@@ -292,7 +292,7 @@ TodayWord.create!(
     {
       japanese: "プロに任せる",
       chinese: "交给专业人士",
-      pinyin: "xxx",
+      pinyin: "jiāo gěi zhuān yè rén shì",
       example_japanese: "そんなの僕みたいな素人にお願いするより、プロに任せたほうがいいよ。",
       example_chinese: "xxx",
       description: "「人士」は社会的に身分・名声のある人を示す言葉。「〇〇に任せる」=「交给〇〇」もよく使う。「俺に任せとけい！（交给我吧！）」",
@@ -301,7 +301,7 @@ TodayWord.create!(
     {
       japanese: "プレゼンをする",
       chinese: "做展示",
-      pinyin: "xxx",
+      pinyin: "zuò zhǎn shì",
       example_japanese: "500人規模のセミナーでプレゼンをして、緊張した。",
       example_chinese: "xxx",
       description: "プレゼンは展示。",
@@ -310,7 +310,7 @@ TodayWord.create!(
     {
       japanese: "言葉遣いに気をつける",
       chinese: "注意语言表达",
-      pinyin: "xxx",
+      pinyin: "zhù yì yǔ yán biǎo dá",
       example_japanese: "少し言葉にトゲがあるから、もう少し言葉遣いに気をつけたほうが良いと思う。",
       example_chinese: "xxx",
       description: "直訳だと、「言語表現に注意する」。少しリフレーズするのが大事。",
@@ -319,7 +319,7 @@ TodayWord.create!(
     {
       japanese: "リスクを取る",
       chinese: "承担风险",
-      pinyin: "xxx",
+      pinyin: "chéng dān fēng xiǎn",
       example_japanese: "彼、リスクを取って銀行から1億円借りたんだって。",
       example_chinese: "xxx",
       description: "承担は「担う」、「背負う」場面でよく使う。風険という表現の由来は、昔の漁業者が嵐を始めとした危険な事態に巻き込まれないよう祈ったことから派生したという説がある。",
@@ -328,7 +328,7 @@ TodayWord.create!(
     {
       japanese: "問題に対処する",
       chinese: "处理问题",
-      pinyin: "xxx",
+      pinyin: "chǔ lǐ wèn tí",
       example_japanese: "何事も冷静に問題に対処しなきゃね。",
       example_chinese: "xxx",
       description: "対処は残念ながらそのまま使えず、「処理」にリフレーズが必要。",
@@ -337,7 +337,7 @@ TodayWord.create!(
     {
       japanese: "クビになる",
       chinese: "炒鱿鱼",
-      pinyin: "xxx",
+      pinyin: "chǎo yóu yú",
       example_japanese: "今の会社クビになったら、雇ってくれない？",
       example_chinese: "xxx",
       description: "イカを炒めていたら解雇された図をイメージをすると覚えやすい",
@@ -346,7 +346,7 @@ TodayWord.create!(
     {
       japanese: "面接を受ける",
       chinese: "面试",
-      pinyin: "xxx",
+      pinyin: "miàn shì",
       example_japanese: "今日はメイドカフェの面接受けることになってるんだ。",
       example_chinese: "xxx",
       description: "「面试」の「面」には既に「受ける」という動詞のニュアンスが含まれる",
@@ -355,7 +355,7 @@ TodayWord.create!(
     {
       japanese: "転職する",
       chinese: "跳槽",
-      pinyin: "xxx",
+      pinyin: "tiào cáo",
       example_japanese: "転職したけど、転職前より忙しくなっちゃった。",
       example_chinese: "xxx",
       description: "「槽」は昔の飼料を置く場所",
@@ -364,7 +364,7 @@ TodayWord.create!(
     {
       japanese: "作業の引き継ぎを行う",
       chinese: "交接工作",
-      pinyin: "xxx",
+      pinyin: "jiāo jiē gōng zuò",
       example_japanese: "部署異動になったから、作業の引き継ぎをしてるところだよ。",
       example_chinese: "xxx",
       description: "xxx",
@@ -373,7 +373,7 @@ TodayWord.create!(
     {
       japanese: "納品する",
       chinese: "进货",
-      pinyin: "xxx",
+      pinyin: "jìn huò",
       example_japanese: "あの報告書、ちゃんと納品間に合った？",
       example_chinese: "xxx",
       description: "xxx",
