@@ -9,8 +9,7 @@ class Admin::AnswersController < Admin::ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
     @answer.destroy
-    flash[:alert] = "回答の削除に成功しました。"
-    redirect_to admin_question_answers_path
+    redirect_to admin_question_answers_path, notice: "回答の削除に成功しました。"
   end
 
 end
