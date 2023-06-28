@@ -163,16 +163,37 @@ Answer.create!(
             （zhēn méi xiǎng dào huàn le jiào liǎn zhī hòu lián yíng le liù chǎng bǐ sài）と言います。"
     },
     {
+      user_id: 2,
+      question_id: 9,
+      body: "ちなみにJリーグは日本甲级联赛（rì běn jiǎ jí lián sài）ですよ〜"
+    },
+    {
+      user_id: 9,
+      question_id: 9,
+      body: "ありがとうございます！
+            中国ではJリーグ的な催しってありますか？"
+    },
+    {
+      user_id: 6,
+      question_id: 9,
+      body: "中国超級リーグ（Chinese Super League、通称CSL）がそうですかね？
+            CSLは2004年に設立され、中国全土のクラブが参加しています。"
+    },
+    {
+      user_id: 9,
+      question_id: 9,
+      body: "なるほどですね〜。ちなみにサッカーは中国語でなんと・・・？"
+    },
+    {
+      user_id: 4,
+      question_id: 9,
+      body: "足球（zú qiú）です。"
+    },
+    {
       user_id: 9,
       question_id: 10,
       body: "「你看了今天的新闻吗？○○和××结婚了，真是让人震惊。」
             （nǐ kàn le jīn tiān de xīn wén ma? ○○ hé ×× jié hūn le, zhēn shì ràng rén zhèn jīng）と言います。"
-    },
-    {
-      user_id: 1,
-      question_id: 10,
-      body: "今天的新闻你看了吗？我完全没想到○○会和××结婚，太震惊了。
-            （jīn tiān de xīn wén nǐ kàn le ma? wǒ wán quán méi xiǎng dào ○○ huì hé ×× jié hūn, tài zhèn jīng le）"
     },
     {
       user_id: 2,
