@@ -37,8 +37,8 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    post = Post.find(params[:id])
+    post.destroy
     redirect_to admin_posts_path, notice: "記事の削除に成功しました。"
   end
 

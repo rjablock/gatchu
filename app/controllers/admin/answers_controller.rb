@@ -6,9 +6,9 @@ class Admin::AnswersController < Admin::ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.find(params[:id])
-    @answer.destroy
+    question = Question.find(params[:question_id])
+    answer = question.answers.find(params[:id])
+    answer.destroy
     redirect_to admin_question_answers_path, notice: "回答の削除に成功しました。"
   end
 

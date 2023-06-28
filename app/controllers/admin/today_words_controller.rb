@@ -31,8 +31,8 @@ class Admin::TodayWordsController < Admin::ApplicationController
   end
 
   def destroy
-    @today_word = TodayWord.find(params[:id])
-    @today_word.destroy
+    today_word = TodayWord.find(params[:id])
+    today_word.destroy
     redirect_to admin_today_words_path, notice: "単語の削除に成功しました。"
   end
 
