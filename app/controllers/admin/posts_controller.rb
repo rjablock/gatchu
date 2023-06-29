@@ -9,7 +9,7 @@ class Admin::PostsController < Admin::ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to admin_posts_path
+      redirect_to admin_posts_path, notice: "記事の作成に成功しました。"
     else
       @genres = Genre.all
       render :new
@@ -29,7 +29,7 @@ class Admin::PostsController < Admin::ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to admin_posts_path
+      redirect_to admin_posts_path, notice: "記事の更新に成功しました。"
     else
       @genres = Genre.all
       render :edit
@@ -37,9 +37,9 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to admin_posts_path
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to admin_posts_path, notice: "記事の削除に成功しました。"
   end
 
   private

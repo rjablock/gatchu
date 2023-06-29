@@ -5,8 +5,8 @@ class Admin::GenresController < Admin::ApplicationController
       flash[:alert] = "作成可能なジャンルは最大10項目です。"
       redirect_to request.referer
     else
-      @genre = Genre.new(genre_params)
-      if @genre.save
+      genre = Genre.new(genre_params)
+      if genre.save
         flash[:notice] = "ジャンルの作成に成功しました。"
         redirect_to request.referer
       else
@@ -21,8 +21,8 @@ class Admin::GenresController < Admin::ApplicationController
   end
 
   def update
-    @genre = Genre.find(params[:id])
-    if @genre.update(genre_params)
+    genre = Genre.find(params[:id])
+    if genre.update(genre_params)
       flash[:notice] = "ジャンル名の更新に成功しました。"
       redirect_to request.referer
     else

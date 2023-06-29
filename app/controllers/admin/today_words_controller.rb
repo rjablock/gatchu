@@ -7,7 +7,7 @@ class Admin::TodayWordsController < Admin::ApplicationController
   def create
     @today_word = TodayWord.new(today_word_params)
     if @today_word.save
-      redirect_to admin_today_words_path
+      redirect_to admin_today_words_path, notice: "単語の作成に成功しました。"
     else
       render :new
     end
@@ -24,16 +24,16 @@ class Admin::TodayWordsController < Admin::ApplicationController
   def update
     @today_word = TodayWord.find(params[:id])
     if @today_word.update(today_word_params)
-      redirect_to admin_today_words_path
+      redirect_to admin_today_words_path, notice: "単語の更新に成功しました。"
     else
       render :edit
     end
   end
 
   def destroy
-    @today_word = TodayWord.find(params[:id])
-    @today_word.destroy
-    redirect_to admin_today_words_path
+    today_word = TodayWord.find(params[:id])
+    today_word.destroy
+    redirect_to admin_today_words_path, notice: "単語の削除に成功しました。"
   end
 
   private

@@ -13,40 +13,7 @@
       <div class="mt-4 form-group">
         <%= form_with model: [:admin, @post], url: admin_posts_path do |f| %>
           <!--新規記事投稿フォーム-->
-          <table class="table table-borderless">
-            <tr>
-              <td class="align-middle font-weight-bold" style="width: 30%">ジャンル</td>
-              <td>
-                <%= f.select :genre_id, options_for_select([["新しくジャンルを作成する", "new"]].concat(@genres.map { |genre| [genre.name, genre.id] })),
-                  { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", style: "width: 75%;", id: "genre-select" } %>
-              </td>
-            </tr>
-            <tr>
-              <td class="align-middle font-weight-bold" style="width: 30%">タイトル</td>
-              <td><%= f.text_field :title, placeholder: "記事タイトル", class: "form-control"%></td>
-            </tr>
-            <tr>
-              <td class="align-middle font-weight-bold" style="width: 30%">本文</td>
-              <td><%= f.text_area :body, placeholder: "記事本文", class: "form-control", style: "height: 130px;" %></td>
-            </tr>
-            <tr>
-              <td class="align-middle font-weight-bold" style="width: 30%">見出し画像</td>
-              <td>
-                <%= f.file_field :image, accept: "image/png, image/jpeg" %><br>
-                <!--プレビュー表示-->
-                <img class="mt-2" id="image-preview" alt="プレビュー" style="max-width: 150px; border: solid thin lightgray; border-radius: 5px;">
-              </td>
-            </tr>
-            <tr>
-              <td class="font-weight-bold" style="width: 30%">公開ステータス</td>
-              <td>
-                <%= f.radio_button :is_active, true, checked: true %>
-                <%= label_tag :is_active_true, "有効" %>
-                <%= f.radio_button :is_active, false, class: "ml-3" %>
-                <%= label_tag :is_active_false, "無効" %>
-              </td>
-            </tr>
-          </table>
+          <%= render 'form', genres: @genres, post: @post, f: f %>
           <!--新規記事投稿ボタン-->
           <div class="text-center">
             <%= f.submit "記事を投稿する", class: "mt-2 btn btn-primary btn-lg", id: "submit-button"  %>
