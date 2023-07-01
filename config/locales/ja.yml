@@ -31,8 +31,11 @@ ja:
         kyushu: "九州"
         overseas: "海外"
       answer_rank:
-        normal: "一般"
-        master: "マスター"
+        newbie: "一般"
+        scholar: "書生"
+        zhuangyuan: "状元"
+        doctor: "博士"
+        sage: "賢人"
   activerecord:
     attributes:
       user:
