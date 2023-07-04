@@ -376,8 +376,8 @@ TodayWord.create!(
     },
     {
       japanese: "有給休暇を取る",
-      chinese: "用年假/请年假",
-      pinyin: "yòng nián jià/qǐng nián jià",
+      chinese: "用年假",
+      pinyin: "yòng nián jià",
       example_japanese: "彼女とユニバに行くために有給を取った。",
       example_chinese: "我请了年假去和女朋友一起去环球影城。",
       description: "中国語で有給は「年」単位の休「暇」で表す。「暇」の漢字が日本語と異なるので注意",
