@@ -3,7 +3,18 @@ body{
 }
 
 .custom-background {
-	background-color: #8bc5ec;
+  position: relative;
+  background: linear-gradient(to bottom right, #8bc5ec, #f0aa8f);
+}
+
+.custom-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 	background-size: 80px 80px;
 	background-image:
 	 linear-gradient(rgba(215,204,200,.7) 1%, rgba(215,204,200,.7) 1%, transparent 1%,
