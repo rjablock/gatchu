@@ -31,6 +31,22 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def get_answer_rank
+    evaluations = self.answers.joins(:evaluations).count
+    if evaluations >= 80
+      self.answer_rank = 'sage'
+    elsif evaluations >= 40
+      self.answer_rank = 'doctor'
+    elsif evaluations >= 20
+      self.answer_rank = 'zhuangyuan'
+    elsif evaluations >= 10
+      self.answer_rank = 'scholar'
+    else
+      self.answer_rank = 'newbie'
+    end
+    self.save
+  end
+
   def posted_questions_count_on(month)
     questions.where(created_at: month.all_month).count
   end
@@ -42,7 +58,7 @@ class User < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     %w[name]
   end
-  
+
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
