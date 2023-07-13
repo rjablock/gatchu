@@ -23,8 +23,7 @@ User.create!(
       gender: 2,
       age: 10,
       study_background: 10,
-      living_area: 70,
-      answer_rank: 10
+      living_area: 70
     }
   ]
 )
@@ -38,8 +37,7 @@ User.create!(
     gender: 0,
     age: 20,
     study_background: 20,
-    living_area: 40,
-    answer_rank: 0
+    living_area: 40
   )
 end
 
@@ -233,6 +231,13 @@ Evaluation.create!(
     },
   ]
 )
+
+10.times do |n|
+  Evaluation.create!(
+    user_id: n + 2,
+    answer_id: 6
+  )
+end
 
 puts "--------- create Genre"
 Genre.create!(
