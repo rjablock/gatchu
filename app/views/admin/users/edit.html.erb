@@ -51,10 +51,6 @@
               <td><%= f.text_field :email, placeholder: "メールアドレス", class: "form-control col-6" %></td>
             </tr>
             <tr>
-              <td class="pt-4 font-weight-bold">アンサーランク</td>
-              <td><%= f.select :answer_rank, User.answer_ranks.keys.map { |k| [I18n.t("enums.user.answer_rank.#{k}"), k] }, { include_blank: false }, { class: "form-control col-6"} %></td>
-            </tr>
-            <tr>
               <td class="font-weight-bold">会員ステータス</td>
               <td>
                 <%= f.radio_button :is_deleted, false %>
