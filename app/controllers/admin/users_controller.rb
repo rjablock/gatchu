@@ -7,6 +7,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.get_answer_rank
   end
 
   def edit

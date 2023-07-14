@@ -13,21 +13,89 @@ Admin.create!(
 )
 
 puts "--------- create User"
-User.create!(
-  [
-    {
-      email: 'test@gmail.com',
-      password: '0000000000',
-      name: 'わんごろう',
-      introduction:  '犬といったら犬なんです',
-      gender: 2,
-      age: 10,
-      study_background: 10,
-      living_area: 70,
-      answer_rank: 10
-    }
-  ]
+user = User.create!(
+  email: 'test@gmail.com',
+  password: '0000000000',
+  name: 'わんごろう',
+  introduction:  '犬といったら犬なんです',
+  gender: 2,
+  age: 10,
+  study_background: 10,
+  living_area: 70
 )
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample1.png')), filename: 'profile_sample1.png')
+
+user = User.create!(
+  email: 'test0@gmail.com',
+  password: '0000000000',
+  name: 'ねこじろう',
+  introduction:  '猫ですにゃ',
+  gender: 1,
+  age: 30,
+  study_background: 20,
+  living_area: 50
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample2.png')), filename: 'profile_sample2.png')
+
+user = User.create!(
+  email: 'test1@gmail.com',
+  password: '0000000000',
+  name: 'さるさぶろう',
+  introduction: '猿きー',
+  gender: 0,
+  age: 50,
+  study_background: 10,
+  living_area: 20
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample3.png')), filename: 'profile_sample3.png')
+
+user = User.create!(
+  email: 'test2@gmail.com',
+  password: '0000000000',
+  name: 'とりしろう',
+  introduction: '鳥ですちゅん',
+  gender: 2,
+  age: 20,
+  study_background: 30,
+  living_area: 60
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample4.png')), filename: 'profile_sample4.png')
+
+user = User.create!(
+  email: 'test3@gmail.com',
+  password: '0000000000',
+  name: 'きじたろう',
+  introduction:  'キジです〜',
+  gender: 0,
+  age: 30,
+  study_background: 10,
+  living_area: 20
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample5.png')), filename: 'profile_sample5.png')
+
+user = User.create!(
+  email: 'test4@gmail.com',
+  password: '0000000000',
+  name: 'はむろくろう',
+  introduction:  'ハムなのだ',
+  gender: 2,
+  age: 50,
+  study_background: 40,
+  living_area: 40
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample6.png')), filename: 'profile_sample6.png')
+
+user = User.create!(
+  email: 'test5@gmail.com',
+  password: '0000000000',
+  name: 'はりちゃん',
+  introduction:  'ハリネズミです',
+  gender: 1,
+  age: 20,
+  study_background: 0,
+  living_area: 30
+)
+user.profile_image.attach(io: File.open(Rails.root.join('db/samples/profile_sample7.png')), filename: 'profile_sample7.png')
 
 10.times do |n|
   User.create!(
@@ -38,8 +106,7 @@ User.create!(
     gender: 0,
     age: 20,
     study_background: 20,
-    living_area: 40,
-    answer_rank: 0
+    living_area: 40
   )
 end
 
@@ -49,59 +116,70 @@ Question.create!(
     {
       user_id: 1,
       title: "犬は中国語でなんというのですか？",
-      body: "犬は中国語でなんというのか、気になって夜しか眠れません。教えてください!"
+      body: "犬は中国語でなんというのか、気になって夜しか眠れません。教えてください!",
+      views_count: 42
     },
     {
       user_id: 2,
       title: "猫は中国語でなんと鳴きますか。",
-      body: "ふと気になりました。猫と合わせて犬の鳴き声も一緒に教えていただけますと幸いです。"
+      body: "ふと気になりました。猫と合わせて犬の鳴き声も一緒に教えていただけますと幸いです。",
+      views_count: 38
     },
     {
       user_id: 3,
       title: "「鳥のさえずり」を中国語でいうと？",
-      body: "チュンチュン、というアレです。"
+      body: "チュンチュン、というアレです。",
+      views_count: 33
     },
     {
       user_id: 4,
       title: "「カーボンニュートラル」は中国語でなんていう？",
       body: "「カーボンニュートラル」は中国語で何ていうのでしょうか。サステナビリティに関するビジネスの議論に使いたいです。
-             例えば、「カーボンニュートラルに関する税制の設定は、政府にとって喫緊の課題である」と言いたいです。"
+             例えば、「カーボンニュートラルに関する税制の設定は、政府にとって喫緊の課題である」と言いたいです。",
+      views_count: 26
     },
     {
       user_id: 5,
       title: "友達に気軽に聞きたい時の「最近どう？」を中国語でいうと？",
-      body: "特別な意味なく気軽に声をかけるニュアンスで。"
+      body: "特別な意味なく気軽に声をかけるニュアンスで。",
+      views_count: 21
     },
     {
       user_id: 6,
       title: "この度はお忙しい中お集まりいただきありがとうございます。って中国語でなんていうの？",
-      body: "セミナー参加者の皆様に向けてお礼の言葉としての言い方です。"
+      body: "セミナー参加者の皆様に向けてお礼の言葉としての言い方です。",
+      views_count: 17
     },
     {
       user_id: 7,
       title: "「○○は駅の反対側にあります」は中国語でなんていう？",
-      body: "場所を聞かれた際の回答です"
+      body: "場所を聞かれた際の回答です",
+      views_count: 12
     },
     {
       user_id: 8,
       title: "この辺でオススメの観光スポットはありますか？って中国語でなんていうの？",
-      body: "海外旅行で現地の人に。"
+      body: "海外旅行で現地の人に。",
+      views_count: 8
     },
     {
       user_id: 9,
       title: "6連勝もするとは思わなかったよを中国語で言うと？",
       body: "「まさか監督が代わってから6連勝もするとは思わなかったよ」
-              Jリーグのサッカーチームの成績についての感想です"
+              Jリーグのサッカーチームの成績についての感想です",
+      views_count: 52
     },
     {
       user_id: 10,
       title: "今日のニュース見た？○○が××と結婚するなんてショックだよねって中国語でなんて言うの？",
-      body: "まさかあの人が・・・。言語の壁を超えてこのショックを分かち合いたいです(´-ω-`)"
+      body: "まさかあの人が・・・。言語の壁を超えてこのショックを分かち合いたいです(´-ω-`)",
+      views_count: 5
     },
     {
       user_id: 11,
       title: "今ダイエット中だからご飯少なめでを中国語で言いたい！",
-      body: "私の日常生活の中で地味に使用頻度の高い言葉です・・・。"
+      body: "私の日常生活の中で地味に使用頻度の高い言葉です・・・。",
+      views_count: 3
     }
   ]
 )
@@ -234,6 +312,13 @@ Evaluation.create!(
   ]
 )
 
+10.times do |n|
+  Evaluation.create!(
+    user_id: n + 2,
+    answer_id: 6
+  )
+end
+
 puts "--------- create Genre"
 Genre.create!(
   [
@@ -334,6 +419,13 @@ Bookmark.create!(
     }
   ]
 )
+
+8.times do |n|
+  Bookmark.create!(
+    user_id: n + 1,
+    question_id: 9
+  )
+end
 
 puts "--------- create TodayWord"
 TodayWord.create!(
