@@ -21,7 +21,7 @@ class User < ApplicationRecord
   enum age:              { unselected_age: 0, teen: 10, twenties: 20, thirties: 30, forties: 40, fifties: 50, sixties: 60, upper_seventies: 70 }
   enum study_background: { unselected_study_background: 0, lessone: 10, onetothree: 20, threetofive: 30, fivemore: 40 }
   enum living_area:      { unselected_living_area: 0, hokkaido: 10, tohoku: 20, kanto: 30, chubu: 40, kinki: 50, chugoku_shikoku: 60, kyushu: 70, overseas: 80 }
-  enum answer_rank:      { normal: 0, master: 10 }
+  enum answer_rank:      { newbie: 0, scholar: 2, zhuangyuan: 5, doctor: 8, sage: 10 }
 
   def get_profile_image(width, height)
     unless profile_image.attached?
@@ -29,6 +29,22 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-profile_image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def get_answer_rank
+    evaluations = self.answers.joins(:evaluations).count
+    if evaluations >= 80
+      self.answer_rank = 'sage'
+    elsif evaluations >= 40
+      self.answer_rank = 'doctor'
+    elsif evaluations >= 20
+      self.answer_rank = 'zhuangyuan'
+    elsif evaluations >= 10
+      self.answer_rank = 'scholar'
+    else
+      self.answer_rank = 'newbie'
+    end
+    self.save
   end
 
   def posted_questions_count_on(month)
@@ -42,7 +58,7 @@ class User < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     %w[name]
   end
-  
+
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
