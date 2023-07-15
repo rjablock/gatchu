@@ -25,7 +25,7 @@ ActiveStorage.start()
 
 global.Chart = Chart;
 
-// Tooltipsの
+// Tooltipsの初期化
 $.fn.tooltip = Tooltip._jQueryInterface;
 
 $(function() {
