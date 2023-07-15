@@ -33,18 +33,25 @@ class User < ApplicationRecord
 
   def get_answer_rank
     evaluations = self.answers.joins(:evaluations).count
+    next_rank = 0
     if evaluations >= 80
       self.answer_rank = 'sage'
+      next_rank = "0（最高ランク）"
     elsif evaluations >= 40
       self.answer_rank = 'doctor'
+      next_rank = 80 - evaluations
     elsif evaluations >= 20
       self.answer_rank = 'zhuangyuan'
+      next_rank = 40 - evaluations
     elsif evaluations >= 10
       self.answer_rank = 'scholar'
+      next_rank = 20 - evaluations
     else
       self.answer_rank = 'newbie'
+      next_rank = 10 - evaluations
     end
     self.save
+    return next_rank
   end
 
   def posted_questions_count_on(month)
