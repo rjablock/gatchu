@@ -28,6 +28,6 @@ global.Chart = Chart;
 // Tooltipsの初期化
 $.fn.tooltip = Tooltip._jQueryInterface;
 
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
