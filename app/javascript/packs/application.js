@@ -17,8 +17,17 @@ import '@fortawesome/fontawesome-free/js/all'
 
 import Chart from 'chart.js/auto';
 
+import { Tooltip } from "bootstrap";
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 global.Chart = Chart;
+
+// Tooltipsの初期化
+$.fn.tooltip = Tooltip._jQueryInterface;
+
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
