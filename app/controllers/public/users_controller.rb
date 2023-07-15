@@ -6,6 +6,8 @@ class Public::UsersController < Public::ApplicationController
     if @user.is_deleted
       redirect_to user_path(current_user), alert: "ユーザーが見つかりません。"
     else
+      @next_rank = @user.get_answer_rank
+
       @posted_questions = @user.questions
       @answered_questions = @user.answers.map(&:question).uniq
 
