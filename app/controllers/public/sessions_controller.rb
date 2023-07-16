@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :sign_out_admin!, only: [:new]
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -30,4 +31,11 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  def sign_out_admin!
+    sign_out :admin if admin_signed_in?
+  end
+
 end
