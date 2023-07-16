@@ -35,10 +35,6 @@
     }
   }
 
-  .content-box {
-    padding: 20px 0;
-  }
-
   .responsive-btn {
     height: 50px !important;
   }
@@ -57,5 +53,9 @@
 @media screen and (max-width:576px) {
   .bg-image {
     height: 18vh;
+  }
+
+  .content-box {
+    padding: 20px 0;
   }
 }
