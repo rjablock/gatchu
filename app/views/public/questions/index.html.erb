@@ -1,18 +1,18 @@
-<div class="container my-5 my-md-0 pt-5 pt-md-0">
+<div class="container my-5 my-lg-0 pt-5 pt-lg-0">
   <div class="row">
-    <div class="offset-md-1 col-md-11">
+    <div class="offset-lg-1 col-lg-11">
 
-      <div class="row pt-md-5 pl-md-5">
-        <div class="col-md-3 d-none d-md-block h3 font-weight-bold">質問板</div>
+      <div class="row pt-lg-5 pl-lg-5 mt-3 mt-md-5 mt-lg-0">
+        <div class="col-lg-3 d-none d-lg-block h3 font-weight-bold">質問板</div>
         <!--検索欄-->
-        <div class="col-8 col-md-6">
+        <div class="col-8 col-lg-6">
           <%= search_form_for @q, url: search_questions_path, html: { class: "input-group" } do |f| %>
             <%= f.search_field :title_cont, class: "form-control", placeholder: "質問を検索" %>
             <%= f.submit "検索", class: "btn btn-outline-success" %>
           <% end %>
         </div>
         <!--質問するボタン-->
-        <div class="col-4 col-md-3">
+        <div class="col-4 col-lg-3">
           <%= link_to "質問する", new_question_path, class: "btn btn-primary" %>
         </div>
       </div>
