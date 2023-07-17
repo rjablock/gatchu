@@ -44,17 +44,13 @@
   }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
   .bg-image {
     height: 30vh;
   }
 }
 
-@media screen and (max-width:576px) {
-  .bg-image {
-    height: 18vh;
-  }
-
+@media screen and (max-width:538px) {
   .responsive-content-box .content-box {
     padding: 20px 0;
   }
