@@ -47,10 +47,6 @@
     font-size: 16px !important;
   }
 
-  .responsive-text-lg {
-    font-size: 18px !important;
-  }
-
   .responsive-text-sm {
     font-size: 14px !important;
   }
@@ -61,6 +57,10 @@
 }
 
 @media screen and (max-width:767px) {
+  .responsive-text-lg {
+    font-size: 18px !important;
+  }
+
   .bg-image {
     height: 30vh;
   }
