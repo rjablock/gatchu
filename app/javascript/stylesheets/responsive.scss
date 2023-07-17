@@ -39,8 +39,24 @@
     height: 50px !important;
   }
 
+  .btn {
+    font-size: 14px !important;
+  }
+
   .responsive-text {
     font-size: 16px !important;
+  }
+
+  .responsive-text-lg {
+    font-size: 18px !important;
+  }
+
+  .responsive-text-sm {
+    font-size: 14px !important;
+  }
+
+  .responsive-text-head{
+    font-size: 36px !important;
   }
 }
 
@@ -51,14 +67,6 @@
 }
 
 @media screen and (max-width:538px) {
-  .responsive-text-head{
-    font-size: 36px !important;
-  }
-
-  .btn {
-    font-size: 14px !important;
-  }
-
   .responsive-content-box .content-box {
     padding: 20px 0;
   }
