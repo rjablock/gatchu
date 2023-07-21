@@ -5,35 +5,35 @@
 
       <!--単語見出し-->
       <div class="text-center mb-4">
-        <h3><%= @today_word.pinyin %></h5>
-        <h1 class="font-weight-bold chinese-font" style="font-size: 50px;"><%= @today_word.chinese %></h3>
+        <h3 class="responsive-text"><%= @today_word.pinyin %></h5>
+        <h1 class="font-weight-bold chinese-font responsive-text-head" style="font-size: 50px;"><%= @today_word.chinese %></h3>
       </div>
 
         <!--単語詳細-->
         <table class="table table-borderless">
           <tr>
-            <td class="word-term h5 border border-dark text-center">意味</td>
-            <td class="h5 pl-4 chinese-font"><%= @today_word.japanese %></td>
+            <td class="word-term h5 border border-dark text-center responsive-text">意味</td>
+            <td class="h5 pl-4 chinese-font responsive-text"><%= @today_word.japanese %></td>
           </tr>
           <td><!--空行--></td>
           <tr>
-            <td rowspan="2" class="word-term h5 border border-dark text-center align-middle">用法</td>
-            <td class="h5 pl-4 chinese-font"><%= @today_word.example_chinese %></td>
+            <td rowspan="2" class="word-term h5 border border-dark text-center align-middle responsive-text">用法</td>
+            <td class="h5 pl-4 chinese-font responsive-text"><%= @today_word.example_chinese %></td>
           </tr>
           <tr>
-            <td class="h5 pl-4 chinese-font"><%= @today_word.example_japanese %></td>
+            <td class="h5 pl-4 chinese-font responsive-text"><%= @today_word.example_japanese %></td>
           </tr>
           <td><!--空行--></td>
           <tr>
-            <td class="word-term h5 border border-dark text-center">同義語</td>
-            <td class="h5 pl-4 chinese-font"><%= @today_word.synonym %></td>
+            <td class="word-term h5 border border-dark text-center responsive-text">同義語</td>
+            <td class="h5 pl-4 chinese-font responsive-text"><%= @today_word.synonym %></td>
           </tr>
         </table>
 
         <!--コラム表示欄-->
         <div class="description border mx-auto mt-5 p-3">
-          <h3 class="font-weight-bold"><i class="fa-regular fa-lightbulb"></i> コラム</h2>
-          <p class="p-1 chinese-font" style="font-size: 18px;"><%= @today_word.description %></p>
+          <h3 class="font-weight-bold responsive-text"><i class="fa-regular fa-lightbulb"></i> コラム</h2>
+          <p class="p-1 chinese-font responsive-text" style="font-size: 18px;"><%= @today_word.description %></p>
         </div>
 
       </div>

@@ -5,14 +5,14 @@
       <% if @search_word.blank? || @questions.empty? %>
 
         <div class="content-box py-5 text-center", style="margin-top: 100px;">
-          <h5 class="m-3">お探しの質問はまだ投稿されていないようです。</h5>
+          <h5 class="m-3 responsive-text-lg">お探しの質問はまだ投稿されていないようです。</h5>
           <%= link_to "質問する", new_question_path, class: "btn btn-primary mt-4" %>
         </div>
 
         <% @questions = Question.all.order(id: "DESC").limit(5) %>
 
         <div class="content-box my-5">
-          <h5 class="my-2 mx-3">その他の人は、こんな質問をしています</h5>
+          <h5 class="my-2 mx-3 responsive-text-lg">その他の人は、こんな質問をしています</h5>
           <%= render 'one_question', questions: @questions %>
         </div>
 
