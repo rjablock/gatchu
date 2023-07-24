@@ -1,4 +1,8 @@
 @media screen and (max-width:992px) {
+  .no-scroll {
+    overflow: hidden;
+  }
+
   .navbar {
     background-color: #fccc4a;
     transition: top 0.8s ease; // スクロール時ヘッダーの連動速度
