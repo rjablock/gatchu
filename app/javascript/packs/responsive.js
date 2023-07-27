@@ -32,4 +32,23 @@ $(function() {
 
     lastScrollTop = scrollTop;
   }
+
+  // ハンバーガーメニューが展開されたときにスクロールを無効にする
+  $('.navbar-toggler').on('click', function() {
+    if ($('#navbarNavAltMarkup').hasClass('show')) {
+      $('body').removeClass('no-scroll');
+    } else {
+      $('body').addClass('no-scroll');
+    }
+  });
+
+  // ハンバーガーメニューの外側をクリックしたときにメニューを閉じる
+  $(document).on('click', function(event) {
+    if (!$(event.target).closest('.navbar').length) {
+      if ($('#navbarNavAltMarkup').hasClass('show')) {
+        $('button.navbar-toggler').trigger('click');
+      }
+    }
+  });
+
 });
