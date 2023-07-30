@@ -91,4 +91,9 @@ class User < ApplicationRecord
     SecureRandom.alphanumeric(10)
   end
 
+  # 退会処理に伴いログアウトさせる
+  def active_for_authentication?
+    super && !is_deleted
+  end
+
 end
