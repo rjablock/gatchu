@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_latest_today_word
   before_action :store_user_location!, if: :storable_location?
+  before_action :check_user
 
   private
 
@@ -33,5 +34,12 @@ class ApplicationController < ActionController::Base
 
   def set_latest_today_word
     @latest_today_word = TodayWord.where(is_active: true).last
+  end
+  
+  def check_user
+    if user_signed_in? && current_user.is_deleted
+      sign_out current_user
+      redirect_to new_user_session_path, alert: '再度ログインしてください。'
+    end
   end
 end
