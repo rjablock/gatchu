@@ -90,5 +90,9 @@ class User < ApplicationRecord
   def generate_random_string
     SecureRandom.alphanumeric(10)
   end
+  
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 
 end
