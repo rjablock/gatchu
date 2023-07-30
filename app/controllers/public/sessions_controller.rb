@@ -2,7 +2,6 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :sign_out_admin!, only: [:new]
-  before_action :reject_invalid_customer, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   def guest_sign_in
@@ -38,14 +37,5 @@ class Public::SessionsController < Devise::SessionsController
   def sign_out_admin!
     sign_out :admin if admin_signed_in?
   end
-  
-   def reject_invalid_customer
-     user = User.find_by(email: params[:user][:email])
-     return unless user
-  
-     return if user.valid_password?(params[:user][:password]) && user.active_for_authentication?
-     
-     redirect_to request.referer
-   end
 
 end
