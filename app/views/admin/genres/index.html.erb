@@ -26,7 +26,7 @@
               <th>ジャンルID</th>
               <th>ジャンル名（最大6文字）</th>
               <th>記事の投稿数</th>
-              <th></th>
+              <th colspan="2"></th>
             </tr>
           </thead>
 
@@ -44,6 +44,9 @@
                   <td>
                     <div class="py-2 px-3 btn btn-success btn-sm edit-button">編集</div>
                     <%= f.submit "保存", class: "py-2 px-3 btn btn-primary btn-sm save-button", style: "display: none;" %>
+                  </td>
+                  <td>
+                    <%= link_to "削除", admin_genre_path(genre), class: "py-2 px-3 btn btn-danger btn-sm", method: :delete, data: {confirm: "削除しますか？"} %>
                   </td>
                 <% end %>
               </tr>
