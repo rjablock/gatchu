@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
+  before_action :check_deleted, only: [:edit]
 
   def index
     @q = User.ransack(params[:q])
@@ -28,6 +29,13 @@ class Admin::UsersController < Admin::ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :gender, :age, :study_background, :living_area, :email, :answer_rank, :is_deleted)
+  end
+
+  def check_deleted
+    user = User.find(params[:id])
+    if user.is_deleted
+      redirect_to admin_users_path, alert: "このユーザーは既に退会しています。"
+    end
   end
 
 end

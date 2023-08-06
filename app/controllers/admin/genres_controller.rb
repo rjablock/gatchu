@@ -31,6 +31,16 @@ class Admin::GenresController < Admin::ApplicationController
     end
   end
 
+  def destroy
+    genre = Genre.find(params[:id])
+    if genre.posts.empty?
+      genre.destroy
+      redirect_to admin_genres_path, notice: "ジャンルの削除に成功しました。"
+    else
+      redirect_to admin_genres_path, alert: "ジャンルに紐づいた記事が存在するため削除できません。"
+    end
+  end
+
   private
 
   def genre_params

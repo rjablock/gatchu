@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
     resources :today_words, only: [:new, :create, :index, :edit, :update, :destroy]
 
-    resources :genres, only: [:create, :index, :update]
+    resources :genres, only: [:create, :index, :update, :destroy]
 
     resources :posts, only: [:new, :create, :index, :edit, :update, :destroy]
 
