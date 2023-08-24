@@ -43,7 +43,7 @@
 [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1waiWQ93ux3s8uNu15D42wOjEFJk2NtwzHNJOD9Qq7x8/edit?usp=sharing)
 
 ### AWS構成図
-![【ガッチュウ!!】PF_AWS構成図 drawio](https://github.com/rjablock/gatchu/assets/129575706/13a354ab-4f8c-4484-9357-885659412dfd)
+<img src="https://github.com/rjablock/gatchu/assets/129575706/13a354ab-4f8c-4484-9357-885659412dfd" alt="ガッチュウ!! PF_AWS構成図" width="50%">
 
 
 ## 開発環境
